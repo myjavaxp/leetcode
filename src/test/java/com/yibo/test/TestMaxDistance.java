@@ -17,7 +17,8 @@ public class TestMaxDistance {
     @Test
     public void test02() {
         IncreaseSequence increaseSequence = new IncreaseSequence();
-        List<List<Integer>> list = increaseSequence.findSubsequences(new int[]{4, 6, 7, 7});
+        List<List<Integer>> list = increaseSequence.findSubsequences(
+                new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15});
         list.forEach(System.out::println);
     }
 

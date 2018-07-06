@@ -30,7 +30,7 @@ public class IncreaseSequence {
                 for (int n : list1) {
                     list2.add(nums[n]);
                 }
-                if (add(list, list2) && isIncr(list2)) {
+                if (isIncr(list2) && add(list, list2)) {
                     list.add(list2);
                 }
             }
