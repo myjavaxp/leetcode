@@ -2,6 +2,7 @@ package com.yibo.test;
 
 import com.yibo.leetcode.IncreaseSequence;
 import com.yibo.leetcode.MaxDistance;
+import com.yibo.leetcode.ReverseWord;
 import org.junit.Test;
 
 import java.util.List;
@@ -18,5 +19,11 @@ public class TestMaxDistance {
         IncreaseSequence increaseSequence = new IncreaseSequence();
         List<List<Integer>> subsequences = increaseSequence.findSubsequences(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15});
         subsequences.forEach(System.out::println);
+    }
+
+    @Test
+    public void test03() {
+        String s = ReverseWord.reverseWords("1 ");
+        System.out.println(s.length());
     }
 }
