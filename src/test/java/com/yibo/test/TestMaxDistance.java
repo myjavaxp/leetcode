@@ -17,13 +17,14 @@ public class TestMaxDistance {
     @Test
     public void test02() {
         IncreaseSequence increaseSequence = new IncreaseSequence();
-        List<List<Integer>> subsequences = increaseSequence.findSubsequences(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15});
-        subsequences.forEach(System.out::println);
+        List<List<Integer>> list = increaseSequence.findSubsequences(new int[]{4, 6, 7, 7});
+        list.forEach(System.out::println);
     }
 
     @Test
     public void test03() {
-        String s = ReverseWord.reverseWords("1 ");
+        String s = ReverseWord.reverseWords("the best football       ");
+        System.out.println(s);
         System.out.println(s.length());
     }
 }

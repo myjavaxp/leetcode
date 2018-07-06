@@ -18,7 +18,7 @@ public class ReverseWord {
     public static String reverseWords(String s) {
         String[] strings = s.split(" ");
         StringBuilder result = new StringBuilder();
-        for (int i = strings.length-1; i >=0; i--) {
+        for (int i = strings.length - 1; i >= 0; i--) {
             String s1 = strings[i].replace(" ", "");
             if (!s1.equals("")) {
                 if (i != 0) {
