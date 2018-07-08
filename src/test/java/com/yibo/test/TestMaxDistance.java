@@ -1,6 +1,7 @@
 package com.yibo.test;
 
 import com.yibo.leetcode.IncreaseSequence;
+import com.yibo.leetcode.LemonadeChange;
 import com.yibo.leetcode.MaxDistance;
 import com.yibo.leetcode.ReverseWord;
 import org.junit.Test;
@@ -27,5 +28,11 @@ public class TestMaxDistance {
         String s = ReverseWord.reverseWords("the best football       ");
         System.out.println(s);
         System.out.println(s.length());
+    }
+
+    @Test
+    public void test04() {
+        LemonadeChange lemonadeChange = new LemonadeChange();
+        System.out.println(lemonadeChange.lemonadeChange(new int[]{10}));
     }
 }
