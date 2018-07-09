@@ -46,4 +46,9 @@ public class TestMaxDistance {
         PerfectNumber perfectNumber = new PerfectNumber();
         System.out.println(perfectNumber.checkPerfectNumber(28));
     }
+
+    @Test
+    public void test07() {
+        System.out.println(BiggestNum.gcd(6, 15));
+    }
 }
