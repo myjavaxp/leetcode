@@ -1,9 +1,6 @@
 package com.yibo.test;
 
-import com.yibo.leetcode.IncreaseSequence;
-import com.yibo.leetcode.LemonadeChange;
-import com.yibo.leetcode.MaxDistance;
-import com.yibo.leetcode.ReverseWord;
+import com.yibo.leetcode.*;
 import org.junit.Test;
 
 import java.util.List;
@@ -21,6 +18,7 @@ public class TestMaxDistance {
         List<List<Integer>> list = increaseSequence.findSubsequences(
                 new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15});
         list.forEach(System.out::println);
+        System.out.println(list.size());
     }
 
     @Test
@@ -34,5 +32,18 @@ public class TestMaxDistance {
     public void test04() {
         LemonadeChange lemonadeChange = new LemonadeChange();
         System.out.println(lemonadeChange.lemonadeChange(new int[]{10}));
+    }
+
+    @Test
+    public void test05() {
+        LongestPalindrome longestPalindrome = new LongestPalindrome();
+        String palindrome = longestPalindrome.longestPalindrome("abcbaabcdcba");
+        System.out.println(palindrome);
+    }
+
+    @Test
+    public void test06() {
+        PerfectNumber perfectNumber = new PerfectNumber();
+        System.out.println(perfectNumber.checkPerfectNumber(28));
     }
 }
