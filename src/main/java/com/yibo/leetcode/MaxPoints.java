@@ -33,62 +33,59 @@ import java.util.*;
  * https://leetcode-cn.com/problems/max-points-on-a-line/description/
  */
 public class MaxPoints {
-    public int maxPoints(Point[] points) {
-        //先根据x轴排序
-        List<Point> set = Arrays.asList(points);
-        //得到所有子集合
-        List<List<Point>> subSets = getSubSets(set, 1);
-        int max=2;
-        for (List<Point> myPoints : subSets) {
-            if(myPoints.size()>2){
-                for(int i=0;i<myPoints.size()-3;i++){
-                    //i+2<myPoints.size()-1
-                    if(!isLine(myPoints.get(i),myPoints.get(i+1),myPoints.get(i+2))){
-
-                    }
+    public static int maxPoints(Point[] points) {
+        Map<Point, Integer> map = new HashMap<>();
+        //map key为点，value为点的个数
+        for (Point point : points) {
+            map.merge(point, 1, (a, b) -> a + b);
+        }
+        Set<Point> keySet = map.keySet();
+        if (map.size() < 3) {
+            int x = 0;
+            for (Point point : keySet) {
+                x += map.get(point);
+            }
+            return x;
+        }
+        //拿到不重复的点
+        List<Point> pointSet = new ArrayList<>(keySet);
+        //得到2个一组的子集合
+        List<List<Point>> lists = new ArrayList<>();
+        for (int i = 0; i < pointSet.size() - 1; i++) {
+            for (int j = i + 1; j < pointSet.size(); j++) {
+                lists.add(Arrays.asList(pointSet.get(i), pointSet.get(j)));
+            }
+        }
+        int max = 0;
+        //然后拿到2+1的各组的最大长度
+        for (List<Point> myList : lists) {
+            int listMax = map.get(myList.get(0)) + map.get(myList.get(1));
+            for (Point point : pointSet) {
+                if (!myList.contains(point) && isLine(myList.get(0), myList.get(1), point)) {
+                    listMax += map.get(point);
                 }
             }
+            max = listMax > max ? listMax : max;
         }
-        return 1;
+        //最大长度中拿最大长度
+        return max;
     }
 
-    private boolean isLine(Point point, Point point1,Point point2) {
-        return (point1.y - point2.y) * (point1.x - point.x) == (point1.x - point2.x) * (point1.y - point.y);
+    private static boolean isLine(Point point, Point point1, Point point2) {
+        Long a = (long) (point.y - point1.y);
+        Long b = (long) (point.x - point2.x);
+        Long c = (long) (point.x - point1.x);
+        Long d = (long) (point.y - point2.y);
+        return (a * b) == (c * d);
     }
-
-
-    private static List<List<Point>> getSubSets(List<Point> set, int index) {
-        List<List<Point>> allSubSets;
-        if (set.size() == index) {
-            allSubSets = new ArrayList<>();
-            for (Point point : set) {
-                allSubSets.add(Collections.singletonList(point)); //empty set
-            }
-        } else {
-            allSubSets = getSubSets(set, index + 1);
-            Point item = set.get(index);
-            ArrayList<List<Point>> moreSubSets = new ArrayList<>();
-            for (List<Point> s : allSubSets) {
-                ArrayList<Point> newSubset = new ArrayList<>(s);
-                newSubset.add(item);
-                moreSubSets.add(newSubset);
-            }
-            allSubSets.addAll(moreSubSets);
-        }
-        return allSubSets;
-    }
-
 
     public static void main(String[] args) {
-        List<Point> s = new ArrayList<>();
-        s.add(new Point(1, 2));
-        s.add(new Point(2, 3));
-        s.add(new Point(3, 4));
-        List<List<Point>> allSubSets = getSubSets(s, 1);
-        for (List<Point> set : allSubSets) {
-            System.out.println(set);
-        }
-
+        Point point = new Point(0, 0);
+        Point point1 = new Point(1, 65536);
+        Point point2 = new Point(65536, 0);
+        System.out.println((point.y - point1.y) * (point.x - point2.x));
+        System.out.println((point.x - point1.x) * (point.y - point2.y));
+        System.out.println(isLine(point, point1, point2));
     }
 }
 
