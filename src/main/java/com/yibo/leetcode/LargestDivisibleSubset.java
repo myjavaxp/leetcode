@@ -1,5 +1,6 @@
 package com.yibo.leetcode;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,11 +18,38 @@ import java.util.List;
  * 集合: [1,2,4,8]
  * <p>
  * 结果: [1,2,4,8]
+ * https://leetcode-cn.com/problems/largest-divisible-subset/description/
  *
  * @author Yibo
  */
 public class LargestDivisibleSubset {
-    public List<Integer> largestDivisibleSubset(int[] nums) {
+    public static List<Integer> largestDivisibleSubset(int[] nums) {
+        List<Integer> list = new ArrayList<>();
+        if (isDivisibleSubset(nums)) {
+            for (int n : nums) {
+                list.add(n);
+            }
+            return list;
+        }
         return null;
+    }
+    private static List<Integer> getSubList(int[] nums,int n){
+        return null;
+    }
+    private static boolean isDivisibleSubset(int[] nums) {
+        for (int i = 0; i < nums.length - 2; i++) {
+            for (int j = i + 1; j < nums.length - 1; j++) {
+                if ((nums[i] > nums[j] ? nums[i] % nums[j] : nums[j] % nums[i]) != 0) {
+                    return false;
+                }
+            }
+
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        List<Integer> list = largestDivisibleSubset(new int[]{1, 2, 4, 8});
+        System.out.println(list);
     }
 }
