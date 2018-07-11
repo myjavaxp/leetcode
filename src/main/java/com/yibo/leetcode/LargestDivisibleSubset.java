@@ -51,7 +51,7 @@ public class LargestDivisibleSubset {
         return true;
     }
 
-    public static List<List<Integer>> getSubsets(List<Integer> subList) {
+    private static List<List<Integer>> getSubsets(List<Integer> subList) {
         List<List<Integer>> allsubsets = new ArrayList<>();
         int max = 1 << subList.size();
         for (int loop = 0; loop < max; loop++) {
