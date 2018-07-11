@@ -23,50 +23,50 @@ import java.util.List;
  * @author Yibo
  */
 public class LargestDivisibleSubset {
-    public List<Integer> largestDivisibleSubset(int[] nums) {
-        List<Integer> result = new ArrayList<>();
-        List<Integer> temp = new ArrayList<>();
-        for (int n : nums) {
-            temp.add(n);
-        }
-        List<List<Integer>> subsets = getSubsets(temp);
-        subsets.sort((o1, o2) -> o2.size() - o1.size());
-        for (List<Integer> subList : subsets) {
-            if (isDivisibleSubset(subList) && subList.size() > result.size()) {
-                result = subList;
-            }
-        }
-        return result;
-    }
+	public List<Integer> largestDivisibleSubset(int[] nums) {
+		List<Integer> result = new ArrayList<>();
+		List<Integer> temp = new ArrayList<>();
+		for (int n : nums) {
+			temp.add(n);
+		}
+		List<List<Integer>> subsets = getSubsets(temp);
+		subsets.sort((o1, o2) -> o2.size() - o1.size());
+		for (List<Integer> subList : subsets) {
+			if (isDivisibleSubset(subList) && subList.size() > result.size()) {
+				result = subList;
+			}
+		}
+		return result;
+	}
 
-    private boolean isDivisibleSubset(List<Integer> nums) {
-        for (int i = 0; i < nums.size() - 1; i++) {
-            for (int j = i + 1; j < nums.size(); j++) {
-                int flag = nums.get(i) > nums.get(j) ? nums.get(i) % nums.get(j) : nums.get(j) % nums.get(i);
-                if (flag != 0) {
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
+	private boolean isDivisibleSubset(List<Integer> nums) {
+		for (int i = 0; i < nums.size() - 1; i++) {
+			for (int j = i + 1; j < nums.size(); j++) {
+				int flag = nums.get(i) > nums.get(j) ? nums.get(i) % nums.get(j) : nums.get(j) % nums.get(i);
+				if (flag != 0) {
+					return false;
+				}
+			}
+		}
+		return true;
+	}
 
-    private List<List<Integer>> getSubsets(List<Integer> subList) {
-        List<List<Integer>> allSubsets = new ArrayList<>();
-        int max = 1 << subList.size();
-        for (int loop = 0; loop < max; loop++) {
-            int index = 0;
-            int temp = loop;
-            List<Integer> currentCharList = new ArrayList<>();
-            while (temp > 0) {
-                if ((temp & 1) > 0) {
-                    currentCharList.add(subList.get(index));
-                }
-                temp >>= 1;
-                index++;
-            }
-            allSubsets.add(currentCharList);
-        }
-        return allSubsets;
-    }
+	private List<List<Integer>> getSubsets(List<Integer> subList) {
+		List<List<Integer>> allSubsets = new ArrayList<>();
+		int max = 1 << subList.size();
+		for (int loop = 0; loop < max; loop++) {
+			int index = 0;
+			int temp = loop;
+			List<Integer> currentCharList = new ArrayList<>();
+			while (temp > 0) {
+				if ((temp & 1) > 0) {
+					currentCharList.add(subList.get(index));
+				}
+				temp >>= 1;
+				index++;
+			}
+			allSubsets.add(currentCharList);
+		}
+		return allSubsets;
+	}
 }
