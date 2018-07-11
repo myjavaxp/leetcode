@@ -23,7 +23,7 @@ import java.util.List;
  * @author Yibo
  */
 public class LargestDivisibleSubset {
-    public static List<Integer> largestDivisibleSubset(int[] nums) {
+    public List<Integer> largestDivisibleSubset(int[] nums) {
         List<Integer> result = new ArrayList<>();
         List<Integer> temp = new ArrayList<>();
         for (int n : nums) {
@@ -39,7 +39,7 @@ public class LargestDivisibleSubset {
         return result;
     }
 
-    private static boolean isDivisibleSubset(List<Integer> nums) {
+    private boolean isDivisibleSubset(List<Integer> nums) {
         for (int i = 0; i < nums.size() - 1; i++) {
             for (int j = i + 1; j < nums.size(); j++) {
                 int flag = nums.get(i) > nums.get(j) ? nums.get(i) % nums.get(j) : nums.get(j) % nums.get(i);
@@ -51,8 +51,8 @@ public class LargestDivisibleSubset {
         return true;
     }
 
-    private static List<List<Integer>> getSubsets(List<Integer> subList) {
-        List<List<Integer>> allsubsets = new ArrayList<>();
+    private List<List<Integer>> getSubsets(List<Integer> subList) {
+        List<List<Integer>> allSubsets = new ArrayList<>();
         int max = 1 << subList.size();
         for (int loop = 0; loop < max; loop++) {
             int index = 0;
@@ -65,13 +65,8 @@ public class LargestDivisibleSubset {
                 temp >>= 1;
                 index++;
             }
-            allsubsets.add(currentCharList);
+            allSubsets.add(currentCharList);
         }
-        return allsubsets;
-    }
-
-    public static void main(String[] args) {
-        List<Integer> largestDivisibleSubset = largestDivisibleSubset(new int[]{472, 105, 328, 922, 963, 625, 827});
-        System.out.println(largestDivisibleSubset);
+        return allSubsets;
     }
 }
