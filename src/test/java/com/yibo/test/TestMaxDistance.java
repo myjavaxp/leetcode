@@ -65,4 +65,10 @@ public class TestMaxDistance {
         System.out.println(friendRequests.numFriendRequests(new int[]{73, 106, 39, 6, 26, 15, 30, 100, 71, 35, 46, 112, 6, 60, 110}));
         System.out.println(friendRequests.numFriendRequests(new int[]{20, 30, 100, 110, 120}));
     }
+
+    @Test
+    public void test10() {
+        GoatLatin goatLatin = new GoatLatin();
+        System.out.println(goatLatin.toGoatLatin("The quick brown fox jumped over the lazy dog"));
+    }
 }
