@@ -1,5 +1,8 @@
 package com.yibo.leetcode;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * 矩形以列表 [x1, y1, x2, y2] 的形式表示，其中 (x1, y1) 为左下角的坐标，(x2, y2) 是右上角的坐标。
  * <p>
@@ -23,14 +26,21 @@ package com.yibo.leetcode;
  */
 public class RectangleOverlap {
     public boolean isRectangleOverlap(int[] rec1, int[] rec2) {
-        if(outOfTheRec(rec1[0],rec1[1],rec2)&&
-                outOfTheRec(rec1[2],rec1[3],rec2)){
-            return false;
-        }
+        List<int[]> point1 = getAllPoint(rec1);
+        List<int[]> point2 = getAllPoint(rec2);
+        //三不沾
         return false;
     }
 
-    private boolean outOfTheRec(int x, int y, int[] rec) {
-        return x<rec[0]||x>rec[2]||y<rec[1]||y>rec[3];
+    private boolean outOfTheRec(int[] p, int[] rec) {
+        return p[0] < rec[0] || p[0] > rec[2] || p[1] < rec[1] || p[1] > rec[3];
+    }
+
+    private List<int[]> getAllPoint(int[] rec) {
+        int[] a = {rec[0], rec[1]};
+        int[] b = {rec[2], rec[3]};
+        int[] c = {rec[0], rec[3]};
+        int[] d = {rec[2], rec[1]};
+        return Arrays.asList(a, b, c, d);
     }
 }

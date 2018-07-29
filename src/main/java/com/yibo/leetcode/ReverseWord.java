@@ -20,7 +20,7 @@ public class ReverseWord {
         StringBuilder result = new StringBuilder();
         for (int i = strings.length - 1; i >= 0; i--) {
             String s1 = strings[i].replace(" ", "");
-            if (!s1.equals("")) {
+            if (!"".equals(s1)) {
                 if (i != 0) {
                     result.append(s1).append(" ");
                 } else {
