@@ -27,9 +27,6 @@ public class RectangleOverlap {
 		if (rec1[1] >= rec2[3]) {
 			return false;
 		}
-		if (rec2[1] >= rec1[3]) {
-			return false;
-		}
-		return true;
-	}
+        return rec2[1] < rec1[3];
+    }
 }
