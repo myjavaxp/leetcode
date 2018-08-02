@@ -1,6 +1,8 @@
 package com.yibo.leetcode;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * 几乎每一个人都用 乘法表。但是你能在乘法表中快速找到第k小的数字吗？
@@ -42,7 +44,7 @@ public class FindKthNumber {
                 list.add(i * j);
             }
         }
-        list.sort(Comparator.comparingInt(o -> o));
+        Collections.sort(list);
         return list.get(k - 1);
     }
 }

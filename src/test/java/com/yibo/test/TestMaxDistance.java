@@ -71,4 +71,11 @@ public class TestMaxDistance {
         GoatLatin goatLatin = new GoatLatin();
         System.out.println(goatLatin.toGoatLatin("The quick brown fox jumped over the lazy dog"));
     }
+
+    @Test
+    public void test11() {
+        FindKthNumber findKthNumber = new FindKthNumber();
+        int number = findKthNumber.findKthNumber(9895, 28405, 100787757);
+        System.out.println(number);
+    }
 }
