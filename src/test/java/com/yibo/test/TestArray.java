@@ -6,7 +6,7 @@ import org.junit.Test;
 public class TestArray {
     @Test
     public void test01() {
-        Array array = new Array(20);
+        Array<Integer> array = new Array<>(20);
         for (int i = 0; i < 11; i++) {
             array.addLast(i);
         }
@@ -24,11 +24,11 @@ public class TestArray {
         System.out.println(array);
         System.out.println(array.removeLast());
         System.out.println(array);
-        array.set(0,1);
-        array.set(1,1);
-        array.set(2,1);
-        array.set(3,1);
-        array.set(8,1);
+        array.set(0, 1);
+        array.set(1, 1);
+        array.set(2, 1);
+        array.set(3, 1);
+        array.set(8, 1);
         System.out.println(array);
         array.removeAllElement(1);
         System.out.println(array);
@@ -36,7 +36,7 @@ public class TestArray {
         System.out.println(array);
         System.out.println(array.size());
         System.out.println(array.removeElement(4));
-        Array arr=new Array();
+        Array<Integer> arr = new Array<>();
         System.out.println(arr.isEmpty());
         arr.addFirst(123);
         arr.addFirst(1);

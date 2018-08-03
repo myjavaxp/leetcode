@@ -2,9 +2,9 @@ package com.yibo.leetcode.structrue;
 
 import java.io.Serializable;
 
-public class Array implements Serializable {
+public class Array<E> implements Serializable {
     private static final long serialVersionUID = -3926745631703053617L;
-    private int[] data;
+    private E[] data;
     private int size;
 
     /**
@@ -12,8 +12,9 @@ public class Array implements Serializable {
      *
      * @param capacity 数组最大容量
      */
+    @SuppressWarnings("unchecked")
     public Array(int capacity) {
-        data = new int[capacity];
+        data = (E[]) new Object[capacity];
         size = 0;
     }
 
@@ -51,15 +52,15 @@ public class Array implements Serializable {
         return size == 0;
     }
 
-    public void addFirst(int e) {
+    public void addFirst(E e) {
         add(0, e);
     }
 
-    public void addLast(int e) {
+    public void addLast(E e) {
         add(size, e);
     }
 
-    public void add(int index, int e) {
+    public void add(int index, E e) {
         if (size == getCapacity()) {
             throw new IllegalArgumentException("Add failed. Array is full.");
         }
@@ -73,59 +74,60 @@ public class Array implements Serializable {
         size++;
     }
 
-    public int get(int index) {
+    public E get(int index) {
         if (index < 0 || index >= size) {
             throw new IllegalArgumentException("Get failed. Require index >= 0 and index < size");
         }
         return data[index];
     }
 
-    public void set(int index, int e) {
+    public void set(int index, E e) {
         if (index < 0 || index >= size) {
             throw new IllegalArgumentException("Set failed. Require index >= 0 and index < size");
         }
         data[index] = e;
     }
 
-    public boolean contains(int e) {
+    public boolean contains(E e) {
         for (int i = 0; i < size; i++) {
-            if (e == data[i]) {
+            if (data[i].equals(e)) {
                 return true;
             }
         }
         return false;
     }
 
-    public int find(int e) {
+    public int find(E e) {
         for (int i = 0; i < size; i++) {
-            if (e == data[i]) {
+            if (data[i].equals(e)) {
                 return i;
             }
         }
         return -1;
     }
 
-    public int remove(int index) {
+    public E remove(int index) {
         if (index < 0 || index >= size) {
             throw new IllegalArgumentException("Remove failed. Require index >= 0 and index < size");
         }
-        int result = data[index];
+        E result = data[index];
         if (size - index + 1 >= 0) {
             System.arraycopy(data, index + 1, data, index, size - index + 1);
         }
         size--;
+        data[size] = null;
         return result;
     }
 
-    public int removeFirst() {
+    public E removeFirst() {
         return remove(0);
     }
 
-    public int removeLast() {
+    public E removeLast() {
         return remove(size - 1);
     }
 
-    public boolean removeElement(int e) {
+    public boolean removeElement(E e) {
         int i = find(e);
         if (i != -1) {
             remove(i);
@@ -135,7 +137,7 @@ public class Array implements Serializable {
         }
     }
 
-    public void removeAllElement(int e) {
+    public void removeAllElement(E e) {
         if (removeElement(e)) {
             removeAllElement(e);
         }
