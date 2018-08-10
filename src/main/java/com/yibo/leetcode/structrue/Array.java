@@ -1,6 +1,7 @@
 package com.yibo.leetcode.structrue;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 public class Array<E> implements Serializable {
     private static final long serialVersionUID = -3926745631703053617L;
@@ -62,7 +63,7 @@ public class Array<E> implements Serializable {
 
     public void add(int index, E e) {
         if (size == getCapacity()) {
-            throw new IllegalArgumentException("Add failed. Array is full.");
+            resize(2 * data.length);
         }
         if (index < 0 || index > size) {
             throw new IllegalArgumentException("Add failed. Require index >= 0 and index <= size");
@@ -111,11 +112,14 @@ public class Array<E> implements Serializable {
             throw new IllegalArgumentException("Remove failed. Require index >= 0 and index < size");
         }
         E result = data[index];
-        if (size - index + 1 >= 0) {
-            System.arraycopy(data, index + 1, data, index, size - index + 1);
+        if (size - index - 1 >= 0) {
+            System.arraycopy(data, index + 1, data, index, size - index - 1);
         }
         size--;
         data[size] = null;
+        if (size == getCapacity() / 2) {
+            resize(getCapacity() / 2);
+        }
         return result;
     }
 
@@ -141,6 +145,10 @@ public class Array<E> implements Serializable {
         if (removeElement(e)) {
             removeAllElement(e);
         }
+    }
+
+    private void resize(int newCapacity) {
+        data = Arrays.copyOf(data, newCapacity);
     }
 
     @Override

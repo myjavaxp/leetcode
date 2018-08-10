@@ -46,4 +46,20 @@ public class TestArray {
         arr.addFirst(2);
         System.out.println(arr);
     }
+
+    @Test
+    public void test02() {
+        Array<Integer> array = new Array<>(1);
+        array.addFirst(1);
+        array.addFirst(1);
+        array.addFirst(1);
+        array.addFirst(1);
+        array.addFirst(1);
+        array.addFirst(1);
+        System.out.println(array);
+        array.remove(5);
+        array.remove(4);
+        array.remove(3);
+        System.out.println(array);
+    }
 }
