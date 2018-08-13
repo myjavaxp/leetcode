@@ -63,7 +63,9 @@ public class Array<E> implements Serializable {
 
     public void add(int index, E e) {
         if (size == getCapacity()) {
-            resize(2 * data.length);
+            int grow = data.length >> 1;
+            int newCapacity = data.length + (grow > 0 ? grow : 1);
+            resize(newCapacity);
         }
         if (index < 0 || index > size) {
             throw new IllegalArgumentException("Add failed. Require index >= 0 and index <= size");
@@ -117,7 +119,7 @@ public class Array<E> implements Serializable {
         }
         size--;
         data[size] = null;
-        if (size == getCapacity() / 2) {
+        if (size == getCapacity() / 4 && getCapacity() / 2 != 0) {
             resize(getCapacity() / 2);
         }
         return result;
@@ -141,9 +143,9 @@ public class Array<E> implements Serializable {
         }
     }
 
-    public void removeAllElement(E e) {
+    public void removeAllElements(E e) {
         if (removeElement(e)) {
-            removeAllElement(e);
+            removeAllElements(e);
         }
     }
 

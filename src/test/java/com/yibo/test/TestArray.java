@@ -1,7 +1,12 @@
 package com.yibo.test;
 
 import com.yibo.leetcode.structrue.Array;
+import com.yibo.leetcode.structrue.ArrayQueue;
+import com.yibo.leetcode.structrue.LoopQueue;
+import com.yibo.leetcode.structrue.Queue;
 import org.junit.Test;
+
+import java.util.Random;
 
 public class TestArray {
     @Test
@@ -30,7 +35,7 @@ public class TestArray {
         array.set(3, 1);
         array.set(8, 1);
         System.out.println(array);
-        array.removeAllElement(1);
+        array.removeAllElements(1);
         System.out.println(array);
         array.remove(0);
         System.out.println(array);
@@ -56,10 +61,48 @@ public class TestArray {
         array.addFirst(1);
         array.addFirst(1);
         array.addFirst(1);
+        array.addFirst(1);
         System.out.println(array);
         array.remove(5);
         array.remove(4);
         array.remove(3);
         System.out.println(array);
+    }
+
+    @Test
+    public void test03() {
+        Queue<Integer> queue = new LoopQueue<>();
+        for (int i = 0; i < 10; i++) {
+            queue.enqueue(i);
+            System.out.println(queue);
+            if (i % 3 == 2) {
+                queue.dequeue();
+                System.out.println(queue);
+            }
+        }
+    }
+
+    @Test
+    public void test04() {
+        int optCount = 1000000;
+        Queue<Integer> queue = new ArrayQueue<>();
+        double time1 = testQueue(queue, optCount);
+        queue = new LoopQueue<>();
+        double time2 = testQueue(queue, optCount);
+        System.out.println("ArrayQueue, time: " + time1 + " s");
+        System.out.println("LoopQueue, time: " + time2 + " s");
+    }
+
+    private double testQueue(Queue<Integer> queue, int optCount) {
+        long time1 = System.nanoTime();
+        Random random = new Random();
+        for (int i = 0; i < optCount; i++) {
+            queue.enqueue(random.nextInt(Integer.MAX_VALUE));
+        }
+        for (int i = 0; i < optCount; i++) {
+            queue.dequeue();
+        }
+        long time2 = System.nanoTime();
+        return (time2 - time1) / 1000000000.0;
     }
 }

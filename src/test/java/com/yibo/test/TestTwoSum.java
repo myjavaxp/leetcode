@@ -28,6 +28,6 @@ public class TestTwoSum {
         GenerateParenthesis generateParenthesis = new GenerateParenthesis();
         List<String> strings = generateParenthesis.generateParenthesis(10);
         System.out.println(strings);
-        System.out.println(9 + (9 >> 1));
+        System.out.println(2>>1);
     }
 }
