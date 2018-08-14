@@ -1,9 +1,8 @@
 package com.yibo.test;
 
-import com.yibo.leetcode.structrue.Array;
-import com.yibo.leetcode.structrue.ArrayQueue;
-import com.yibo.leetcode.structrue.LoopQueue;
-import com.yibo.leetcode.structrue.Queue;
+import com.yibo.leetcode.day20180814.ListNode;
+import com.yibo.leetcode.structrue.*;
+import com.yibo.leetcode.structrue.practice.RemoveElementsSolution;
 import org.junit.Test;
 
 import java.util.Random;
@@ -71,7 +70,7 @@ public class TestArray {
 
     @Test
     public void test03() {
-        Queue<Integer> queue = new LoopQueue<>();
+        Queue<Integer> queue = new LinkedListQueue<>();
         for (int i = 0; i < 10; i++) {
             queue.enqueue(i);
             System.out.println(queue);
@@ -84,13 +83,16 @@ public class TestArray {
 
     @Test
     public void test04() {
-        int optCount = 1000000;
+        int optCount = 100000;
         Queue<Integer> queue = new ArrayQueue<>();
         double time1 = testQueue(queue, optCount);
         queue = new LoopQueue<>();
         double time2 = testQueue(queue, optCount);
+        queue = new LinkedListQueue<>();
+        double time3 = testQueue(queue, optCount);
         System.out.println("ArrayQueue, time: " + time1 + " s");
         System.out.println("LoopQueue, time: " + time2 + " s");
+        System.out.println("LinkedListQueue, time: " + time3 + " s");
     }
 
     private double testQueue(Queue<Integer> queue, int optCount) {
@@ -104,5 +106,38 @@ public class TestArray {
         }
         long time2 = System.nanoTime();
         return (time2 - time1) / 1000000000.0;
+    }
+
+    @Test
+    public void test05() {
+        LinkedList<Integer> linkedList = new LinkedList<>();
+        for (int i = 0; i < 10; i++) {
+            linkedList.addFirst(i);
+            System.out.println(linkedList);
+        }
+        linkedList.add(2, 666);
+        System.out.println(linkedList);
+        System.out.println(linkedList.remove(2));
+        System.out.println(linkedList);
+    }
+
+    @Test
+    public void test06() {
+        Stack<Integer> stack = new LinkedListStack<>();
+        for (int i = 0; i < 10; i++) {
+            stack.push(i);
+        }
+        System.out.println(stack);
+        System.out.println(stack.peek());
+        stack.pop();
+        System.out.println(stack);
+    }
+
+    @Test
+    public void test07() {
+        RemoveElementsSolution removeElements = new RemoveElementsSolution();
+        ListNode listNode = new ListNode(new int[]{1, 2, 3, 6, 4, 5, 6});
+        ListNode node = removeElements.removeElements(listNode, 6);
+        System.out.println(node);
     }
 }
