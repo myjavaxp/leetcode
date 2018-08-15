@@ -1,5 +1,9 @@
 package com.yibo.leetcode.structrue.tree;
 
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
+
 /**
  * @param <E> 泛型必须实现{@link Comparable}接口，使得其具有可比性。
  * @author Yibo
@@ -55,6 +59,94 @@ public class BinarySearchTree<E extends Comparable<E>> {
         return node;
     }
 
+    /**
+     * 判断树是否包含某个元素
+     *
+     * @param e 待查元素
+     * @return 是否包含
+     */
+    public boolean contains(E e) {
+        return contains(root, e);
+    }
+
+    private boolean contains(Node node, E e) {
+        if (node == null) {
+            return false;
+        }
+        if (e.compareTo(node.e) == 0) {
+            return true;
+        }
+        if (e.compareTo(node.e) < 0) {
+            return contains(node.left, e);
+        }
+        return contains(node.right, e);
+    }
+
+    /**
+     * 深度优先遍历
+     */
+    public void preOrderNo() {
+        Stack<Node> stack = new Stack<>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            Node cur = stack.pop();
+            System.out.println(cur.e);
+            if (cur.right != null) {
+                stack.push(cur.right);
+            }
+            if (cur.left != null) {
+                stack.push(cur.left);
+            }
+        }
+    }
+
+    /**
+     * 二分搜索树的前序遍历
+     */
+    public void preOrder() {
+        preOrder(root);
+    }
+
+    private void preOrder(Node node) {
+        if (node == null) {
+            return;
+        }
+        System.out.println(node.e);
+        preOrder(node.left);
+        preOrder(node.right);
+    }
+
+    public void inOrder() {
+        inOrder(root);
+    }
+
+    private void inOrder(Node node) {
+        if (node == null) {
+            return;
+        }
+        inOrder(node.left);
+        System.out.println(node.e);
+        inOrder(node.right);
+    }
+
+    /**
+     * 层序遍历
+     */
+    public void levelOrder() {
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            Node node = queue.remove();
+            System.out.println(node.e);
+            if (node.left != null) {
+                queue.add(node.left);
+            }
+            if (node.right != null) {
+                queue.add(node.right);
+            }
+        }
+    }
+
     private class Node {
         /**
          * 节点值
@@ -69,11 +161,33 @@ public class BinarySearchTree<E extends Comparable<E>> {
          */
         private Node right;
 
-        private Node() {
-        }
-
         private Node(E e) {
             this.e = e;
         }
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder res = new StringBuilder();
+        generateString(root, 0, res);
+        return res.toString();
+    }
+
+    private void generateString(Node node, int depth, StringBuilder res) {
+        if (node == null) {
+            res.append(generateDepthString(depth)).append("null\n");
+            return;
+        }
+        res.append(generateDepthString(depth)).append(node.e).append("\n");
+        generateString(node.left, depth + 1, res);
+        generateString(node.right, depth + 1, res);
+    }
+
+    private String generateDepthString(int depth) {
+        StringBuilder res = new StringBuilder();
+        for (int i = 0; i < depth; i++) {
+            res.append("-|");
+        }
+        return res.toString();
     }
 }

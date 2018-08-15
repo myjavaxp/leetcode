@@ -3,6 +3,7 @@ package com.yibo.test;
 import com.yibo.leetcode.day20180814.ListNode;
 import com.yibo.leetcode.structrue.*;
 import com.yibo.leetcode.structrue.practice.RemoveElementsSolution;
+import com.yibo.leetcode.structrue.tree.BinarySearchTree;
 import org.junit.Test;
 
 import java.util.Random;
@@ -139,5 +140,21 @@ public class TestArray {
         ListNode listNode = new ListNode(new int[]{1, 2, 3, 6, 4, 5, 6});
         ListNode node = removeElements.removeElements(listNode, 6);
         System.out.println(node);
+    }
+
+    @Test
+    public void test08() {
+        BinarySearchTree<Integer> tree = new BinarySearchTree<>();
+        int[] arr = new int[]{3, 4, 1, 0, 99, 32};
+        for (int a : arr) {
+            tree.add(a);
+        }
+        tree.preOrder();
+        tree.preOrderNo();
+        System.out.println();
+        tree.levelOrder();
+        System.out.println(tree.contains(100));
+        System.out.println(tree);
+        tree.inOrder();
     }
 }
