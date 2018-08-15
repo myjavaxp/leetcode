@@ -8,7 +8,7 @@ import java.util.Stack;
  * @param <E> 泛型需要实现{@link Comparable}接口，使得其具有可比性。
  * @author Yibo
  */
-public class BinarySearchTree<E extends Comparable<E>> {
+public class BinaryTree<E extends Comparable<E>> {
     private int size;
     private Node root;
 
