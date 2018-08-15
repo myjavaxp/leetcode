@@ -5,7 +5,7 @@ import java.util.Queue;
 import java.util.Stack;
 
 /**
- * @param <E> 泛型必须实现{@link Comparable}接口，使得其具有可比性。
+ * @param <E> 泛型需要实现{@link Comparable}接口，使得其具有可比性。
  * @author Yibo
  */
 public class BinarySearchTree<E extends Comparable<E>> {
@@ -145,6 +145,78 @@ public class BinarySearchTree<E extends Comparable<E>> {
                 queue.add(node.right);
             }
         }
+    }
+
+    /**
+     * 查找树的最小值
+     *
+     * @return 树中最小元素
+     */
+    public E minimum() {
+        if (size == 0) {
+            throw new IllegalArgumentException("Empty!");
+        }
+        return minimum(root).e;
+    }
+
+    private Node minimum(Node node) {
+        if (node.left == null) {
+            return node;
+        }
+        return minimum(node.left);
+    }
+
+    /**
+     * 查找树的最大值
+     *
+     * @return 树中最大元素
+     */
+    public E maximum() {
+        if (size == 0) {
+            throw new IllegalArgumentException("Empty!");
+        }
+        return maximum(root).e;
+    }
+
+    private Node maximum(Node node) {
+        if (node.right == null) {
+            return node;
+        }
+        return maximum(node.right);
+    }
+
+    public E removeMin() {
+        E min = minimum();
+        root = removeMin(root);
+        return min;
+    }
+
+    private Node removeMin(Node node) {
+        if (node.left == null) {
+            Node rightNode = node.right;
+            node.right = null;
+            size--;
+            return rightNode;
+        }
+        node.left = removeMin(node.left);
+        return node;
+    }
+
+    public E removeMax() {
+        E max = maximum();
+        root = removeMax(root);
+        return max;
+    }
+
+    private Node removeMax(Node node) {
+        if (node.right == null) {
+            Node leftNode = node.left;
+            node.left = null;
+            size--;
+            return leftNode;
+        }
+        node.right = removeMax(node.right);
+        return node;
     }
 
     private class Node {

@@ -6,6 +6,8 @@ import com.yibo.leetcode.structrue.practice.RemoveElementsSolution;
 import com.yibo.leetcode.structrue.tree.BinarySearchTree;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class TestArray {
@@ -156,5 +158,32 @@ public class TestArray {
         System.out.println(tree.contains(100));
         System.out.println(tree);
         tree.inOrder();
+        System.out.println("最大值:" + tree.maximum());
+        System.out.println("最小值:" + tree.minimum());
+        System.out.println("移除最小值");
+        System.out.println(tree.removeMin());
+        System.out.println(tree);
+
+        System.out.println("移除最大值");
+        System.out.println(tree.removeMax());
+        System.out.println(tree);
+    }
+
+    @Test
+    public void test09() {
+        BinarySearchTree<Integer> tree = new BinarySearchTree<>();
+        int n = 100;
+        Random random = new Random();
+        for (int i = 0; i < n; i++) {
+            tree.add(random.nextInt(10000));
+        }
+        System.out.println(tree);
+        List<Integer> list = new ArrayList<>();
+        while (!tree.isEmpty()) {
+            list.add(tree.removeMin());
+            System.out.println("删除元素后:");
+            System.out.println(tree);
+        }
+        System.out.println(list);
     }
 }
