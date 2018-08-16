@@ -219,6 +219,45 @@ public class BinaryTree<E extends Comparable<E>> {
         return node;
     }
 
+    /**
+     * 二叉树删除任意元素
+     *
+     * @param e 待删除元素
+     */
+    public void remove(E e) {
+        root = remove(root, e);
+    }
+
+    private Node remove(Node node, E e) {
+        if (node == null) {
+            return null;
+        }
+        if (node.e.equals(e)) {
+            if (node.left == null) {
+                size--;
+                Node right = node.right;
+                node.right = null;
+                return right;
+            }
+            if (node.right == null) {
+                size--;
+                Node left = node.left;
+                node.left = null;
+                return left;
+            }
+            Node min = minimum(node.right);
+            min.left = node.left;
+            min.right = removeMin(node.right);
+            node.left = node.right = null;
+            return min;
+        }
+        if (e.compareTo(node.e) > 0) {
+            node.right = remove(node.right, e);
+        }
+        node.left = remove(node.left, e);
+        return node;
+    }
+
     private class Node {
         /**
          * 节点值

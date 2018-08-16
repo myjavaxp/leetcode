@@ -186,4 +186,24 @@ public class TestArray {
         }
         System.out.println(list);
     }
+
+    @Test
+    public void test10() {
+        BinaryTree<Integer> tree = new BinaryTree<>();
+        int n = 101;
+        Random random = new Random();
+        for (int i = 0; i < n; i++) {
+            tree.add(random.nextInt(100));
+        }
+        System.out.println(tree);
+        for (int i = 0; i < 100; i++) {
+            if (tree.contains(i)) {
+                System.out.println("移除元素：" + i);
+                tree.remove(i);
+                break;
+            }
+        }
+        System.out.println("------");
+        System.out.println(tree);
+    }
 }
