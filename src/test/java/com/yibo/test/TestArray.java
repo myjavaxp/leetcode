@@ -154,7 +154,7 @@ public class TestArray {
         tree.preOrder();
         tree.preOrderNo();
         System.out.println();
-        tree.levelOrder();
+        System.out.println("层序遍历："+tree.levelOrder());
         System.out.println(tree.contains(100));
         System.out.println(tree);
         tree.inOrder();

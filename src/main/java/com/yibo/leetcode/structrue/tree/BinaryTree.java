@@ -132,12 +132,13 @@ public class BinaryTree<E extends Comparable<E>> {
     /**
      * 层序遍历
      */
-    public void levelOrder() {
+    public String levelOrder() {
+        StringBuilder stringBuilder = new StringBuilder();
         Queue<Node> queue = new LinkedList<>();
         queue.add(root);
         while (!queue.isEmpty()) {
             Node node = queue.remove();
-            System.out.println(node.e);
+            stringBuilder.append(node.e).append(", ");
             if (node.left != null) {
                 queue.add(node.left);
             }
@@ -145,6 +146,8 @@ public class BinaryTree<E extends Comparable<E>> {
                 queue.add(node.right);
             }
         }
+        String string = stringBuilder.toString();
+        return string.substring(0,string.length()-2);
     }
 
     /**
