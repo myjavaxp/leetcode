@@ -1,4 +1,6 @@
-package com.yibo.leetcode.structrue;
+package com.yibo.leetcode.structrue.queue;
+
+import com.yibo.leetcode.structrue.Queue;
 
 public class LinkedListQueue<E> implements Queue<E> {
     private Node head, tail;

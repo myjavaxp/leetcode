@@ -1,4 +1,7 @@
-package com.yibo.leetcode.structrue;
+package com.yibo.leetcode.structrue.queue;
+
+import com.yibo.leetcode.structrue.list.Array;
+import com.yibo.leetcode.structrue.Queue;
 
 public class ArrayQueue<E> implements Queue<E> {
     private Array<E> array;

@@ -1,4 +1,7 @@
-package com.yibo.leetcode.structrue;
+package com.yibo.leetcode.structrue.stack;
+
+import com.yibo.leetcode.structrue.list.LinkedList;
+import com.yibo.leetcode.structrue.Stack;
 
 public class LinkedListStack<E> implements Stack<E> {
     private LinkedList<E> list;

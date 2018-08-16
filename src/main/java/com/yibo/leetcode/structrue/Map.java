@@ -3,11 +3,11 @@ package com.yibo.leetcode.structrue;
 public interface Map<K, V> {
     V put(K key, V value);
 
-    V remove(Object key);
+    V remove(K key);
 
-    boolean containsKey(Object key);
+    boolean containsKey(K key);
 
-    V get(Object key);
+    V get(K key);
 
     int size();
 

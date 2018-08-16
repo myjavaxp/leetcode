@@ -1,4 +1,6 @@
-package com.yibo.leetcode.structrue;
+package com.yibo.leetcode.structrue.queue;
+
+import com.yibo.leetcode.structrue.Queue;
 
 public class LoopQueue<E> implements Queue<E> {
     private E[] data;

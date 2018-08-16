@@ -147,7 +147,7 @@ public class BinaryTree<E extends Comparable<E>> {
             }
         }
         String string = stringBuilder.toString();
-        return string.substring(0,string.length()-2);
+        return string.substring(0, string.length() - 2);
     }
 
     /**
@@ -256,8 +256,9 @@ public class BinaryTree<E extends Comparable<E>> {
         }
         if (e.compareTo(node.e) > 0) {
             node.right = remove(node.right, e);
+        } else {
+            node.left = remove(node.left, e);
         }
-        node.left = remove(node.left, e);
         return node;
     }
 

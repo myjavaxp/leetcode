@@ -1,4 +1,4 @@
-package com.yibo.leetcode.structrue;
+package com.yibo.leetcode.structrue.list;
 
 public class LinkedList<E> {
     private Node dummyHead;

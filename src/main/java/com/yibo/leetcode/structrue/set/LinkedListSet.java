@@ -1,6 +1,6 @@
 package com.yibo.leetcode.structrue.set;
 
-import com.yibo.leetcode.structrue.LinkedList;
+import com.yibo.leetcode.structrue.list.LinkedList;
 import com.yibo.leetcode.structrue.Set;
 
 public class LinkedListSet<E> implements Set<E> {

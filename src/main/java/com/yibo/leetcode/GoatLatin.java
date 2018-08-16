@@ -38,7 +38,7 @@ public class GoatLatin {
             if (begin(strings[i])) {
                 string.append(strings[i]).append("ma");
             } else {
-                String temp = strings[i].substring(1, strings[i].length()) + strings[i].charAt(0);
+                String temp = strings[i].substring(1) + strings[i].charAt(0);
                 string.append(temp).append("ma");
             }
             for (int j = 0; j < i + 1; j++) {

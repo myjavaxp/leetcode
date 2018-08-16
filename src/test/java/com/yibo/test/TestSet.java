@@ -1,6 +1,6 @@
 package com.yibo.test;
 
-import com.yibo.leetcode.structrue.LinkedList;
+import com.yibo.leetcode.structrue.list.LinkedList;
 import com.yibo.leetcode.structrue.set.LinkedListSet;
 import com.yibo.leetcode.structrue.Set;
 import org.junit.Test;

@@ -1,4 +1,7 @@
-package com.yibo.leetcode.structrue;
+package com.yibo.leetcode.structrue.stack;
+
+import com.yibo.leetcode.structrue.list.Array;
+import com.yibo.leetcode.structrue.Stack;
 
 public class ArrayStack<E> implements Stack<E> {
     private Array<E> array;

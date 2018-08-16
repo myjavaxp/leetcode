@@ -2,7 +2,13 @@ package com.yibo.test;
 
 import com.yibo.leetcode.day20180814.ListNode;
 import com.yibo.leetcode.structrue.*;
+import com.yibo.leetcode.structrue.list.Array;
+import com.yibo.leetcode.structrue.list.LinkedList;
 import com.yibo.leetcode.structrue.practice.RemoveElementsSolution;
+import com.yibo.leetcode.structrue.queue.ArrayQueue;
+import com.yibo.leetcode.structrue.queue.LinkedListQueue;
+import com.yibo.leetcode.structrue.queue.LoopQueue;
+import com.yibo.leetcode.structrue.stack.LinkedListStack;
 import com.yibo.leetcode.structrue.tree.BinaryTree;
 import org.junit.Test;
 
