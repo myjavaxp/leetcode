@@ -7,7 +7,7 @@ public interface Queue<E> {
 
     E getFront();
 
-    int getSize();
+    int size();
 
     boolean isEmpty();
 }

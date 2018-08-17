@@ -69,7 +69,7 @@ public class LoopQueue<E> implements Queue<E> {
     }
 
     @Override
-    public int getSize() {
+    public int size() {
         return size;
     }
 

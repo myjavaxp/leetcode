@@ -30,7 +30,7 @@ public class ArrayQueue<E> implements Queue<E> {
     }
 
     @Override
-    public int getSize() {
+    public int size() {
         return array.size();
     }
 

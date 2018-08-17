@@ -19,6 +19,13 @@ public class Array<E> implements Serializable {
         size = 0;
     }
 
+    @SuppressWarnings("unchecked")
+    public Array(E[] data) {
+        this.data = (E[]) new Object[data.length];
+        System.arraycopy(data, 0, this.data, 0, data.length);
+        this.size = data.length;
+    }
+
     /**
      * 无参构造函数
      */
