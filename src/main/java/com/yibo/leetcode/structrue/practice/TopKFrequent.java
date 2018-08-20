@@ -29,7 +29,7 @@ public class TopKFrequent {
         /*
          * java自带的PriorityQueue是最小堆
          */
-        PriorityQueue<Integer> queue = new PriorityQueue<>(Comparator.comparingInt(map::get));
+        Queue<Integer> queue = new PriorityQueue<>(Comparator.comparingInt(map::get));
         for (int key : map.keySet()) {
             if (queue.size() < k) {
                 queue.add(key);
