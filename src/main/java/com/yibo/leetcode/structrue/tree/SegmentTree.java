@@ -3,7 +3,13 @@ package com.yibo.leetcode.structrue.tree;
 import com.yibo.leetcode.structrue.Merger;
 
 public class SegmentTree<E> {
+    /**
+     * 数组数据
+     */
     private E[] data;
+    /**
+     * 经过merge以后的值。
+     */
     private E[] tree;
     private Merger<E> merger;
 
@@ -14,10 +20,50 @@ public class SegmentTree<E> {
         System.arraycopy(arr, 0, data, 0, arr.length);
         if (arr.length < 2) {
             tree = (E[]) new Object[arr.length];
+            buildSegmentTree(0, 0, data.length - 1);
         } else {
             tree = (E[]) new Object[arr.length * 4 - 5];
             buildSegmentTree(0, 0, data.length - 1);
         }
+    }
+
+    /**
+     * 更改某位置的值
+     *
+     * @param index 索引位置
+     * @param e     新值
+     */
+    public void set(int index, E e) {
+        if (index < 0 || index >= data.length) {
+            throw new IllegalArgumentException("Index is illegal!");
+        }
+        data[index] = e;
+        set(0, 0, data.length - 1, index, e);
+    }
+
+    /**
+     * 递归方法
+     *
+     * @param treeIndex 递归的节点索引
+     * @param l         递归左边界
+     * @param r         递归右边界
+     * @param index     要替换的元素位置
+     * @param e         新的元素的值
+     */
+    private void set(int treeIndex, int l, int r, int index, E e) {
+        if (l == r) {
+            tree[treeIndex] = e;
+            return;
+        }
+        int mid = l + (r - l) / 2;
+        int leftTreeIndex = leftChild(treeIndex);
+        int rightTreeIndex = rightChild(treeIndex);
+        if (index > mid) {//如果要替换的元素位置大于等于中间值。则去右子树设置
+            set(rightTreeIndex, mid + 1, r, index, e);
+        } else {
+            set(leftTreeIndex, l, mid, index, e);
+        }
+        tree[treeIndex] = merger.merge(tree[leftTreeIndex], tree[rightTreeIndex]);
     }
 
     public E query(int left, int right) {
