@@ -28,11 +28,4 @@ public class NumArray2 {
         }
         return segmentTree.query(i, j);
     }
-
-    public static void main(String[] args) {
-        NumArray2 numArray = new NumArray2(new int[]{-1});
-        System.out.println(numArray.sumRange(0, 0));
-        numArray.update(0, 1);
-        System.out.println(numArray.sumRange(0, 0));
-    }
 }
