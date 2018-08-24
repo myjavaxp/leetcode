@@ -1,4 +1,4 @@
-package com.yibo.leetcode;
+package com.yibo.leetcode.history;
 
 /**
  * 给定一个字符串，逐个翻转字符串中的每个单词。

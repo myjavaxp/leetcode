@@ -1,4 +1,4 @@
-package com.yibo.leetcode;
+package com.yibo.leetcode.history;
 
 public class BiggestNum {
     public static int gcd(int p, int q) {

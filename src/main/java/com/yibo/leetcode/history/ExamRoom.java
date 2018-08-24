@@ -1,4 +1,4 @@
-package com.yibo.leetcode;
+package com.yibo.leetcode.history;
 
 /**
  * 在考场里，一排有 N 个座位，分别编号为 0, 1, 2, ..., N-1 。

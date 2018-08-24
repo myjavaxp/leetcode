@@ -1,4 +1,4 @@
-package com.yibo.leetcode;
+package com.yibo.leetcode.history;
 
 /**
  * 求出大于或等于 N 的最小回文素数。

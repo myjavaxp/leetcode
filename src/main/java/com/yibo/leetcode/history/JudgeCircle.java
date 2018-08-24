@@ -1,4 +1,4 @@
-package com.yibo.leetcode;
+package com.yibo.leetcode.history;
 
 /**
  * https://leetcode-cn.com/problems/judge-route-circle/description/

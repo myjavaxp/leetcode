@@ -1,6 +1,6 @@
 package com.yibo.test;
 
-import com.yibo.leetcode.*;
+import com.yibo.leetcode.history.*;
 import org.junit.Test;
 
 import java.util.List;

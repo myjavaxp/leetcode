@@ -1,4 +1,4 @@
-package com.yibo.leetcode;
+package com.yibo.leetcode.history;
 
 /**
  * 假设你正在爬楼梯。需要 n 步你才能到达楼顶。

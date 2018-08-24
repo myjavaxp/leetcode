@@ -1,4 +1,4 @@
-package com.yibo.leetcode;
+package com.yibo.leetcode.history;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,7 +1,7 @@
 package com.yibo.test;
 
-import com.yibo.leetcode.Trap;
-import com.yibo.leetcode.TwoSum;
+import com.yibo.leetcode.history.Trap;
+import com.yibo.leetcode.history.TwoSum;
 import com.yibo.leetcode.day20180810.GenerateParenthesis;
 import org.junit.Test;
 
