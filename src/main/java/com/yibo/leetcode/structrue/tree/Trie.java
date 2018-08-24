@@ -6,6 +6,9 @@ import java.util.Map;
 /**
  * 也叫前缀树
  * 此类设计的只支持char类型
+ * 扩展训练：删除操作
+ * 缺点：占用空间大，可以用压缩字典树，但是缺点是维护麻烦
+ * 后缀树
  */
 public class Trie {
     private Node root;
