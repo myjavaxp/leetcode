@@ -26,10 +26,4 @@ public class NumArray {
         }
         return segmentTree.query(i, j);
     }
-
-    public static void main(String[] args) {
-        NumArray numArray = new NumArray(new int[]{-1});
-        System.out.println(numArray.sumRange(0, 0));
-        System.out.println(numArray.segmentTree);
-    }
 }
