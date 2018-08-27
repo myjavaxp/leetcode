@@ -1,10 +1,9 @@
 package com.yibo.test;
 
 import com.yibo.leetcode.structrue.UnionFind;
-import com.yibo.leetcode.structrue.uf.UnionFind1;
-import com.yibo.leetcode.structrue.uf.UnionFind2;
 import com.yibo.leetcode.structrue.uf.UnionFind3;
 import com.yibo.leetcode.structrue.uf.UnionFind4;
+import com.yibo.leetcode.structrue.uf.UnionFind5;
 import org.junit.Test;
 
 import java.util.Random;
@@ -12,16 +11,18 @@ import java.util.Random;
 public class TestUnionFind {
     @Test
     public void test01() {
-        int size = 100000;
-        int m = 100000;
-        UnionFind uf1 = new UnionFind1(size);
-        UnionFind uf2 = new UnionFind2(size);
+        int size = 100000000;
+        int m = 100000000;
+        //UnionFind uf1 = new UnionFind1(size);
+        //UnionFind uf2 = new UnionFind2(size);
         UnionFind uf3 = new UnionFind3(size);
         UnionFind uf4 = new UnionFind4(size);
-        System.out.println(test(uf1, m));
-        System.out.println(test(uf2, m));
+        UnionFind uf5 = new UnionFind5(size);
+        //System.out.println(test(uf1, m));
+        //System.out.println(test(uf2, m));
         System.out.println(test(uf3, m));
         System.out.println(test(uf4, m));
+        System.out.println(test(uf5, m));
     }
 
     private double test(UnionFind unionFind, int m) {
