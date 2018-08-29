@@ -70,7 +70,7 @@ public class AVLTree<K extends Comparable<K>, V> implements Map<K, V> {
         if (balanceFactor < -1 && getBalanceFactor(node.right) <= 0) {//RR
             return leftRotate(node);
         }
-        if (balanceFactor > 1 && getBalanceFactor(node.left) < 0) {
+        if (balanceFactor > 1 && getBalanceFactor(node.left) < 0) {//LR
             node.left = leftRotate(node.left);
             return rightRotate(node);
         }
@@ -83,9 +83,8 @@ public class AVLTree<K extends Comparable<K>, V> implements Map<K, V> {
 
     private Node rightRotate(Node y) {
         Node x = y.left;
-        Node t3 = x.right;
+        y.left = x.right;
         x.right = y;
-        y.left = t3;
         y.height = Math.max(getHeight(y.left), getHeight(y.right)) + 1;
         x.height = Math.max(getHeight(x.left), getHeight(x.right)) + 1;
         return x;
@@ -93,9 +92,8 @@ public class AVLTree<K extends Comparable<K>, V> implements Map<K, V> {
 
     private Node leftRotate(Node y) {
         Node x = y.right;
-        Node t3 = x.left;
+        y.right = x.left;
         x.left = y;
-        y.right = t3;
         y.height = Math.max(getHeight(y.left), getHeight(y.right)) + 1;
         x.height = Math.max(getHeight(x.left), getHeight(x.right)) + 1;
         return x;
