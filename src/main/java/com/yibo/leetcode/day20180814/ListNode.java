@@ -10,7 +10,7 @@ public class ListNode {
 
     public ListNode(int[] arr) {
         if (arr.length < 1) {
-            throw new IllegalArgumentException("Cannot add empty array!");
+            throw new IllegalArgumentException("Cannot put empty array!");
         }
         val = arr[0];
         ListNode cur = this;
