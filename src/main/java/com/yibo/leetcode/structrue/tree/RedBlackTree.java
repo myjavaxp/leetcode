@@ -34,7 +34,8 @@ public class RedBlackTree<K extends Comparable<K>, V> {
     }
 
     // 判断节点node的颜色
-    private boolean isRed(Node node) {
+    @SuppressWarnings("unused")
+	private boolean isRed(Node node) {
         if (node == null)
             return BLACK;
         return node.color;
