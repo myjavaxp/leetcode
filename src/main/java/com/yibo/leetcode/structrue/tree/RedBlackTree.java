@@ -33,10 +33,10 @@ public class RedBlackTree<K extends Comparable<K>, V> {
     }
 
     // 判断节点node的颜色
-    @SuppressWarnings("unused")
-	private boolean isRed(Node node) {
-        if (node == null)
+    private boolean isRed(Node node) {
+        if (node == null) {
             return BLACK;
+        }
         return node.color;
     }
 
@@ -86,27 +86,38 @@ public class RedBlackTree<K extends Comparable<K>, V> {
             return new Node(key, value); // 默认插入红色节点
         }
 
-        if (key.compareTo(node.key) < 0)
+        if (key.compareTo(node.key) < 0) {
             node.left = add(node.left, key, value);
-        else if (key.compareTo(node.key) > 0)
+        } else if (key.compareTo(node.key) > 0) {
             node.right = add(node.right, key, value);
-        else // key.compareTo(node.key) == 0
+        } else {
             node.value = value;
-
+        }
+        if (isRed(node.right) && !isRed(node.left)) {
+            node = leftRotate(node);
+        }
+        if (isRed(node.left) && isRed(node.left.left)) {
+            node = rightRotate(node);
+        }
+        if (isRed(node.left) && isRed(node.right)) {
+            flipColors(node);
+        }
         return node;
     }
 
-    // 返回以node为根节点的二分搜索树中，key所在的节点
+    // 返回以node为根节点的红黑树中，key所在的节点
     private Node getNode(Node node, K key) {
 
-        if (node == null)
+        if (node == null) {
             return null;
-        if (node.key.equals(key))
+        }
+        if (node.key.equals(key)) {
             return node;
-        else if (key.compareTo(node.key) < 0)
+        } else if (key.compareTo(node.key) < 0) {
             return getNode(node.left, key);
-        else // if(key.compareTo(node.key) > 0)
+        } else {
             return getNode(node.right, key);
+        }
     }
 
     public boolean contains(K key) {
@@ -120,20 +131,22 @@ public class RedBlackTree<K extends Comparable<K>, V> {
 
     public void set(K key, V newValue) {
         Node node = getNode(root, key);
-        if (node == null)
+        if (node == null) {
             throw new IllegalArgumentException(key + " doesn't exist!");
+        }
         node.value = newValue;
     }
 
-    // 返回以node为根的二分搜索树的最小值所在的节点
+    // 返回以node为根的红黑树的最小值所在的节点
     private Node minimum(Node node) {
-        if (node.left == null)
+        if (node.left == null) {
             return node;
+        }
         return minimum(node.left);
     }
 
-    // 删除掉以node为根的二分搜索树中的最小节点
-    // 返回删除节点后新的二分搜索树的根
+    // 删除掉以node为根的红黑树中的最小节点
+    // 返回删除节点后新的红黑树的根
     private Node removeMin(Node node) {
 
         if (null == node.left) {
@@ -147,7 +160,7 @@ public class RedBlackTree<K extends Comparable<K>, V> {
         return node;
     }
 
-    // 从二分搜索树中删除键为key的节点
+    // 从红黑树中删除键为key的节点
     public V remove(K key) {
 
         Node node = getNode(root, key);
@@ -160,8 +173,9 @@ public class RedBlackTree<K extends Comparable<K>, V> {
 
     private Node remove(Node node, K key) {
 
-        if (node == null)
+        if (node == null) {
             return null;
+        }
 
         if (key.compareTo(node.key) < 0) {
             node.left = remove(node.left, key);
