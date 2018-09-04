@@ -8,7 +8,7 @@ public class ArrayUtil {
         Integer[] arr = new Integer[n];
         Random random = new Random();
         for (int i = 0; i < n; i++) {
-            arr[i] = rangeL + random.nextInt(rangeR - rangeL + 1);
+            arr[i] = rangeL + random.nextInt(rangeR - rangeL);
         }
         return arr;
     }

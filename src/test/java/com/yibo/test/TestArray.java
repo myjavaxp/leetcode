@@ -1,7 +1,8 @@
 package com.yibo.test;
 
 import com.yibo.leetcode.day20180814.ListNode;
-import com.yibo.leetcode.structrue.*;
+import com.yibo.leetcode.structrue.Queue;
+import com.yibo.leetcode.structrue.Stack;
 import com.yibo.leetcode.structrue.list.Array;
 import com.yibo.leetcode.structrue.list.LinkedList;
 import com.yibo.leetcode.structrue.practice.RemoveElementsSolution;
@@ -10,11 +11,10 @@ import com.yibo.leetcode.structrue.queue.LinkedListQueue;
 import com.yibo.leetcode.structrue.queue.LoopQueue;
 import com.yibo.leetcode.structrue.stack.LinkedListStack;
 import com.yibo.leetcode.structrue.tree.BinaryTree;
+import com.yibo.leetcode.util.ArrayUtil;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class TestArray {
     @Test
@@ -160,7 +160,7 @@ public class TestArray {
         tree.preOrder();
         tree.preOrderNo();
         System.out.println();
-        System.out.println("层序遍历："+tree.levelOrder());
+        System.out.println("层序遍历：" + tree.levelOrder());
         System.out.println(tree.contains(100));
         System.out.println(tree);
         tree.inOrder();
@@ -211,5 +211,12 @@ public class TestArray {
         }
         System.out.println("------");
         System.out.println(tree);
+    }
+
+    @Test
+    public void test11() {
+        Integer[] array = ArrayUtil.generateRandomArray(100, 0, 10);
+        HashSet<Integer> set = new HashSet<>(Arrays.asList(array));
+        System.out.println(set);
     }
 }
