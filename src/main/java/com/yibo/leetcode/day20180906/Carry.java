@@ -1,9 +1,6 @@
 package com.yibo.leetcode.day20180906;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 public class Carry {
     /**
@@ -13,9 +10,29 @@ public class Carry {
      * @param cars  用户输入的汽车类型。
      * @return 解决方案
      */
-    public List<Solution> carry(Set<Solution> rules, List<String> cars) {
+    public List<Solution> carry(List<Solution> rules, List<String> cars) {
+        Set<Solution> ruleSet = new HashSet<>(rules);
+        Map<String, Integer> carMap = new HashMap<>();
         List<Solution> result = new ArrayList<>();
+        for (String car : cars) {
+            carMap.merge(car, 1, (a, b) -> a + b);
+        }
+        //规则清洗
+        for (Solution solution : ruleSet) {
+            if (!isValid(solution, carMap)) {
+                ruleSet.remove(solution);
+            }
+        }
         return result;
+    }
+
+    private boolean isValid(Solution solution, Map<String, Integer> map) {
+        if (solution.bottom == null) {
+            return false;
+        }
+        return map.containsKey(solution.bottom) &&
+                (solution.middle == null || map.containsKey(solution.middle)) &&
+                (solution.middle == null || map.containsKey(solution.middle));
     }
 
     /**
