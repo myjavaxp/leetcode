@@ -3,7 +3,7 @@ package com.yibo.leetcode.day20180920;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Solution454 {
+public class Solution0454 {
     public int fourSumCount(int[] A, int[] B, int[] C, int[] D) {
         Map<Integer, Integer> record = new HashMap<>();
         for (int aC : C) {

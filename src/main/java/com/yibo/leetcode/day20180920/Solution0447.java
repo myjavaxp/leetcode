@@ -3,7 +3,7 @@ package com.yibo.leetcode.day20180920;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Solution447 {
+public class Solution0447 {
     public int numberOfBoomerangs(int[][] points) {
         int res = 0;
         for (int i = 0; i < points.length; i++) {

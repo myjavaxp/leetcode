@@ -2,7 +2,7 @@ package com.yibo.leetcode.day20180920;
 
 import java.util.*;
 
-public class Solution049 {
+public class Solution0049 {
     public List<List<String>> groupAnagrams(String[] strs) {
         Map<String, List<String>> map = new HashMap<>();
         for (String string : strs) {

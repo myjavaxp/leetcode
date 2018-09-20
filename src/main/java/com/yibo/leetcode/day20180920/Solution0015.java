@@ -17,7 +17,7 @@ import java.util.*;
  *
  * @author yibo
  */
-public class Solution015 {
+public class Solution0015 {
     public List<List<Integer>> threeSum(int[] nums) {
         Map<Integer, Integer> counter = new HashMap<>();
         for (int num : nums) {
