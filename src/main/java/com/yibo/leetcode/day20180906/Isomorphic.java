@@ -1,5 +1,9 @@
 package com.yibo.leetcode.day20180906;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+
 /**
  * https://leetcode-cn.com/problems/isomorphic-strings/description/
  *
@@ -10,16 +14,17 @@ public class Isomorphic {
         if (s.length() != t.length()) {
             return false;
         }
-        int[] freq1 = new int[256];
-        int[] freq2 = new int[256];
+        Map<Character, Integer> map1 = new HashMap<>();
+        Map<Character, Integer> map2 = new HashMap<>();
         for (int i = 0; i < s.length(); i++) {
             char c1 = s.charAt(i);
             char c2 = t.charAt(i);
+            if (!Objects.equals(map1.get(c1), map2.get(c2))) {
+                return false;
+            }
+            map1.put(c1, i);
+            map2.put(c2, i);
         }
-        return false;
-    }
-
-    public static void main(String[] args) {
-
+        return true;
     }
 }
