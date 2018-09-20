@@ -2,11 +2,11 @@ package com.yibo.test;
 
 import com.yibo.leetcode.day20180905.Palindrome;
 import com.yibo.leetcode.structrue.tree.Trie;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class TestTrie {
+class TestTrie {
     @Test
-    public void test01() {
+    void test01() {
         Trie trie = new Trie();
         trie.add("apple");
         trie.add("徐家汇");
@@ -17,7 +17,7 @@ public class TestTrie {
     }
 
     @Test
-    public void test02() {
+    void test02() {
         Palindrome palindrome = new Palindrome();
         System.out.println(palindrome.isPalindrome("A man, a plan, a canal: Panama"));
     }

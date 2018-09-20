@@ -1,15 +1,15 @@
 package com.yibo.test;
 
+import com.yibo.leetcode.structrue.Set;
 import com.yibo.leetcode.structrue.list.LinkedList;
 import com.yibo.leetcode.structrue.set.LinkedListSet;
-import com.yibo.leetcode.structrue.Set;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Random;
 
-public class TestSet {
+class TestSet {
     @Test
-    public void test01() {
+    void test01() {
         Set<Integer> set = new LinkedListSet<>();
         Random random = new Random();
         for (int i = 0; i < 20; i++) {
@@ -29,7 +29,7 @@ public class TestSet {
     }
 
     @Test
-    public void test02() {
+    void test02() {
         LinkedList<Integer> list = new LinkedList<>();
         for (int i = 1; i < 10; i++) {
             list.addFirst(i);

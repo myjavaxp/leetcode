@@ -2,14 +2,14 @@ package com.yibo.test;
 
 import com.yibo.leetcode.structrue.heap.MaxHeap;
 import com.yibo.leetcode.structrue.practice.TopKFrequent;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 import java.util.Random;
 
-public class TestHeap {
+class TestHeap {
     @Test
-    public void test01() {
+    void test01() {
         MaxHeap<Integer> heap = new MaxHeap<>();
         Random random = new Random();
         int n = 1000000;
@@ -31,7 +31,7 @@ public class TestHeap {
     }
 
     @Test
-    public void test02() {
+    void test02() {
         int n = 10000000;
         Integer[] testData = new Integer[n];
         Random random = new Random();
@@ -45,7 +45,7 @@ public class TestHeap {
     }
 
     @Test
-    public void test03() {
+    void test03() {
         TopKFrequent topKFrequent = new TopKFrequent();
         int[] arr = {5, 2, 5, 3, 5, 3, 1, 1, 3};
         List<Integer> list = topKFrequent.topKFrequent(arr, 2);

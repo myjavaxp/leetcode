@@ -5,14 +5,14 @@ import com.yibo.leetcode.day20180904.MoveZeroes;
 import com.yibo.leetcode.util.ArrayUtil;
 import com.yibo.leetcode.util.Single;
 import com.yibo.leetcode.util.SingleExample;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
-public class TestSearch {
+class TestSearch {
     @Test
-    public void test01() {
+    void test01() {
         int n = 10000000;
         Integer[] arr = ArrayUtil.generateOrderedArray(n);
         final long start = System.currentTimeMillis();
@@ -26,7 +26,7 @@ public class TestSearch {
     }
 
     @Test
-    public void test02() throws IllegalAccessException, InvocationTargetException, InstantiationException, NoSuchMethodException {
+    void test02() throws IllegalAccessException, InvocationTargetException, InstantiationException, NoSuchMethodException {
         SingleExample instance1 = SingleExample.getInstance();
         Constructor<SingleExample> constructor = SingleExample.class.getDeclaredConstructor();
         constructor.setAccessible(true);
@@ -35,7 +35,7 @@ public class TestSearch {
     }
 
     @Test
-    public void test03() throws Exception {
+    void test03() throws Exception {
         Single s1 = Single.getInstance();
         Constructor<Single> constructor = Single.class.getDeclaredConstructor();
         constructor.setAccessible(true);
@@ -44,7 +44,7 @@ public class TestSearch {
     }
 
     @Test
-    public void test04() {
+    void test04() {
         MoveZeroes moveZeroes = new MoveZeroes();
         moveZeroes.moveZeroes(new int[]{0, 0});
     }

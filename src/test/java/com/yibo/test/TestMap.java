@@ -2,11 +2,12 @@ package com.yibo.test;
 
 import com.yibo.leetcode.structrue.Map;
 import com.yibo.leetcode.structrue.map.BinaryTreeMap;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class TestMap {
+
+class TestMap {
     @Test
-    public void test01() {
+    void test01() {
         Map<Integer, Integer> map = new BinaryTreeMap<>();
         int[] strings = {100, 101, 102, 99, 10000, 103, 103, 103};
         for (int s : strings) {
