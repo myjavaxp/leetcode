@@ -13,11 +13,11 @@ public class Solution0206 {
         return pre;
     }
 
-    private class ListNode {
-        private int val;
-        private ListNode next;
+    class ListNode {
+        int val;
+        ListNode next;
 
-        private ListNode(int x) {
+        ListNode(int x) {
             val = x;
         }
     }
