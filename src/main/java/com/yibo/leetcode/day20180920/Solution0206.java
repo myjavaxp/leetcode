@@ -1,5 +1,7 @@
 package com.yibo.leetcode.day20180920;
 
+import com.yibo.leetcode.model.ListNode;
+
 public class Solution0206 {
     public ListNode reverseList(ListNode head) {
         ListNode pre = null;
@@ -11,14 +13,5 @@ public class Solution0206 {
             cur = next;
         }
         return pre;
-    }
-
-    class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
     }
 }
