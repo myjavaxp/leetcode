@@ -1,6 +1,7 @@
 package com.yibo.test;
 
 import com.yibo.leetcode.day20180814.ListNode;
+import com.yibo.leetcode.day20180929.HailStone;
 import com.yibo.leetcode.structrue.Queue;
 import com.yibo.leetcode.structrue.Stack;
 import com.yibo.leetcode.structrue.list.Array;
@@ -223,5 +224,11 @@ class TestArray {
     @Test
     void test12() {
         System.out.println(Character.SIZE);
+    }
+
+    @Test
+    void test13() {
+        HailStone hailStone = new HailStone();
+        hailStone.hailStone(100000).forEach(System.out::println);
     }
 }
