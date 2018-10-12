@@ -1,4 +1,4 @@
-package com.yibo.leetcode.structrue.practice;
+package com.yibo.leetcode.day20180920;
 
 import java.util.*;
 
@@ -19,7 +19,7 @@ import java.util.*;
  * 你的算法的时间复杂度必须优于 O(n log n) , n 是数组的大小。
  * https://leetcode-cn.com/problems/top-k-frequent-elements/description/
  */
-public class TopKFrequent {
+public class Solution0347 {
 
     public List<Integer> topKFrequent(int[] nums, int k) {
         Map<Integer, Integer> map = new HashMap<>();
@@ -38,10 +38,6 @@ public class TopKFrequent {
                 queue.add(key);
             }
         }
-        List<Integer> list = new LinkedList<>();
-        while (!queue.isEmpty()) {
-            list.add(queue.poll());
-        }
-        return list;
+        return new ArrayList<>(queue);
     }
 }

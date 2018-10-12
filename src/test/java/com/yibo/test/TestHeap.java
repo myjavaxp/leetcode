@@ -1,7 +1,7 @@
 package com.yibo.test;
 
 import com.yibo.leetcode.structrue.heap.MaxHeap;
-import com.yibo.leetcode.structrue.practice.TopKFrequent;
+import com.yibo.leetcode.day20180920.Solution0347;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -46,9 +46,9 @@ class TestHeap {
 
     @Test
     void test03() {
-        TopKFrequent topKFrequent = new TopKFrequent();
+        Solution0347 solution0347 = new Solution0347();
         int[] arr = {5, 2, 5, 3, 5, 3, 1, 1, 3};
-        List<Integer> list = topKFrequent.topKFrequent(arr, 2);
+        List<Integer> list = solution0347.topKFrequent(arr, 2);
         System.out.println(list);
     }
 
