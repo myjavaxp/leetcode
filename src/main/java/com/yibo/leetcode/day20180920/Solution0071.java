@@ -15,36 +15,36 @@ import java.util.Stack;
  * @author yibo
  */
 public class Solution0071 {
-	public String simplifyPath(String path) {
-		if (path.isEmpty()) {
-			return path;
-		}
-		Stack<String> stack = new Stack<>();
-		int startIndex = 1;
-		path += '/';
-		for (int i = 1; i < path.length(); i++) {
-			if (path.charAt(i) == '/') {
-				String curPath = path.substring(startIndex, i);
-				startIndex = i + 1;
-				if (curPath.equals(".") || curPath.isEmpty()) {
-					continue;
-				}
-				if (curPath.equals("..")) {
-					if (!stack.isEmpty()) {
-						stack.pop();
-					}
-				} else {
-					stack.push(curPath);
-				}
-			}
-		}
-		String res = "";
-		while (!stack.isEmpty()) {
-			res = "/" + stack.pop() + res;
-		}
-		if (res.length() == 0) {
-			return "/";
-		}
-		return res;
-	}
+    public String simplifyPath(String path) {
+        if (path.isEmpty()) {
+            return path;
+        }
+        Stack<String> stack = new Stack<>();
+        int startIndex = 1;
+        path += '/';
+        for (int i = 1; i < path.length(); i++) {
+            if (path.charAt(i) == '/') {
+                String curPath = path.substring(startIndex, i);
+                startIndex = i + 1;
+                if (curPath.equals(".") || curPath.isEmpty()) {
+                    continue;
+                }
+                if (curPath.equals("..")) {
+                    if (!stack.isEmpty()) {
+                        stack.pop();
+                    }
+                } else {
+                    stack.push(curPath);
+                }
+            }
+        }
+        StringBuilder res = new StringBuilder();
+        while (!stack.isEmpty()) {
+            res.insert(0, '/' + stack.pop());
+        }
+        if (res.length() == 0) {
+            return "/";
+        }
+        return res.toString();
+    }
 }
