@@ -40,12 +40,4 @@ public class Solution0144 {
             this.s = s;
         }
     }
-
-    private void pre(TreeNode node, List<Integer> list) {
-        if (node != null) {
-            list.add(node.val);
-            pre(node.left, list);
-            pre(node.right, list);
-        }
-    }
 }

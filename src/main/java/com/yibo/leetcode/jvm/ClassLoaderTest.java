@@ -7,7 +7,6 @@ import java.lang.reflect.InvocationTargetException;
 public class ClassLoaderTest {
     public static void main(String[] args) throws ClassNotFoundException, IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
         ClassLoader myLoader = new ClassLoader() {
-            @SuppressWarnings("ResultOfMethodCallIgnored")
             @Override
             public Class<?> loadClass(String name) throws ClassNotFoundException {
                 try {

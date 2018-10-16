@@ -2,7 +2,6 @@ package com.yibo.leetcode.jvm;
 
 import java.util.concurrent.TimeUnit;
 
-@SuppressWarnings("deprecation")
 public class FinalizeEscapeGC {
     private static FinalizeEscapeGC SAVE_HOOK = null;
 
