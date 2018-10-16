@@ -1,4 +1,4 @@
-package com.yibo.leetcode.day20180906;
+package com.yibo.leetcode.day20180920;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -8,7 +8,7 @@ import java.util.Set;
  *
  * @author Yibo
  */
-public class HappyNumber {
+public class Solution0202 {
     public boolean isHappy(int n) {
         Set<Integer> set = new HashSet<>();
         while (true) {
