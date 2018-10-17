@@ -1,7 +1,7 @@
 package com.yibo.test;
 
 import com.yibo.leetcode.structrue.heap.MaxHeap;
-import com.yibo.leetcode.day20180920.Solution0347;
+import com.yibo.leetcode.solution.Solution0347;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

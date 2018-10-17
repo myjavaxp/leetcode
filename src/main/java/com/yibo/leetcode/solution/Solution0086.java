@@ -1,4 +1,4 @@
-package com.yibo.leetcode.day20180920;
+package com.yibo.leetcode.solution;
 
 import com.yibo.leetcode.model.ListNode;
 

@@ -1,4 +1,4 @@
-package com.yibo.leetcode.day20180929;
+package com.yibo.leetcode.algorithm;
 
 import java.util.ArrayList;
 import java.util.List;

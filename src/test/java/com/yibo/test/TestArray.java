@@ -1,7 +1,7 @@
 package com.yibo.test;
 
 import com.yibo.leetcode.day20180814.ListNode;
-import com.yibo.leetcode.day20180929.HailStone;
+import com.yibo.leetcode.algorithm.HailStone;
 import com.yibo.leetcode.structrue.Queue;
 import com.yibo.leetcode.structrue.Stack;
 import com.yibo.leetcode.structrue.list.Array;

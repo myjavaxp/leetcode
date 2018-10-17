@@ -1,4 +1,4 @@
-package com.yibo.leetcode.day20180920;
+package com.yibo.leetcode.solution;
 
 import java.util.LinkedList;
 import java.util.Queue;
