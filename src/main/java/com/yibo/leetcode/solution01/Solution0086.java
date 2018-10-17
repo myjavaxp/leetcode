@@ -14,6 +14,29 @@ import com.yibo.leetcode.model.ListNode;
  */
 public class Solution0086 {
     public ListNode partition(ListNode head, int x) {
-        return null;
+        ListNode dummyHead = new ListNode(0);
+        dummyHead.next = head;
+        ListNode cur = dummyHead;
+        ListNode bigPre = null;
+        while (cur.next != null) {
+            ListNode next = cur.next;
+            if (next.val < x) {
+                if (bigPre != null) {
+                    ListNode big = bigPre.next;
+                    bigPre.next = next;
+                    cur.next = next.next;
+                    next.next = big;
+                    bigPre = next;
+                } else {
+                    cur = cur.next;
+                }
+            } else {
+                if (bigPre == null) {
+                    bigPre = cur;
+                }
+                cur = cur.next;
+            }
+        }
+        return dummyHead.next;
     }
 }

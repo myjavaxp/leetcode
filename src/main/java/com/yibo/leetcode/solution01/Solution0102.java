@@ -1,6 +1,7 @@
 package com.yibo.leetcode.solution01;
 
 import com.yibo.leetcode.model.TreeNode;
+import javafx.util.Pair;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -13,33 +14,23 @@ public class Solution0102 {
         if (root == null) {
             return res;
         }
-        Queue<Pair> queue = new LinkedList<>();
-        queue.add(new Pair(root, 0));
+        Queue<Pair<TreeNode, Integer>> queue = new LinkedList<>();
+        queue.add(new Pair<>(root, 0));
         while (!queue.isEmpty()) {
-            Pair pair = queue.poll();
-            TreeNode node = pair.node;
-            int level = pair.level;
+            Pair<TreeNode, Integer> pair = queue.poll();
+            TreeNode node = pair.getKey();
+            int level = pair.getValue();
             if (level == res.size()) {
                 res.add(new ArrayList<>());
             }
             res.get(level).add(node.val);
             if (node.left != null) {
-                queue.add(new Pair(node.left, level + 1));
+                queue.add(new Pair<>(node.left, level + 1));
             }
             if (node.right != null) {
-                queue.add(new Pair(node.right, level + 1));
+                queue.add(new Pair<>(node.right, level + 1));
             }
         }
         return res;
-    }
-
-    private class Pair {
-        private TreeNode node;
-        private int level;
-
-        private Pair(TreeNode node, int level) {
-            this.node = node;
-            this.level = level;
-        }
     }
 }
