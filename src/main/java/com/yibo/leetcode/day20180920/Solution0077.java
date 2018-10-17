@@ -26,6 +26,13 @@ public class Solution0077 {
         }
     }
 
+    /**
+     * 从1～n这n个数字中取k个互不相同的数字，求解所有可能性
+     *
+     * @param n n个数字
+     * @param k 容器大小
+     * @return 所有可能性
+     */
     public List<List<Integer>> combine(int n, int k) {
         if (n < 1 || k < 1 || k > n) {
             return res;
