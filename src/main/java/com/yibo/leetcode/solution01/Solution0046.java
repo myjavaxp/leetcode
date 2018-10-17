@@ -1,4 +1,4 @@
-package com.yibo.leetcode.solution;
+package com.yibo.leetcode.solution01;
 
 import java.util.LinkedList;
 import java.util.List;

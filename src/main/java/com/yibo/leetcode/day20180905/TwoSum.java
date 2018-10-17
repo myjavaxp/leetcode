@@ -21,6 +21,6 @@ public class TwoSum {
                 result[0]++;
             }
         }
-        throw new RuntimeException("The input has no solution.");
+        throw new RuntimeException("The input has no solution01.");
     }
 }

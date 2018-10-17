@@ -1,4 +1,4 @@
-package com.yibo.leetcode.solution;
+package com.yibo.leetcode.solution01;
 
 import com.yibo.leetcode.model.ListNode;
 
