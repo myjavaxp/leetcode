@@ -29,7 +29,8 @@ public class Solution0417 {
     private int m, n;
     private List<int[]> res = new ArrayList<>();
     private boolean[][] visited;
-    private boolean[][] flag;
+    private boolean[][] pacific;
+    private boolean[][] atlantic;
 
     public List<int[]> pacificAtlantic(int[][] matrix) {
         m = matrix.length;
@@ -37,11 +38,15 @@ public class Solution0417 {
             return res;
         }
         n = matrix[0].length;
-        flag = new boolean[m][n];
+        pacific = new boolean[m][n];
+        atlantic = new boolean[m][n];
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 visited = new boolean[m][n];
-                if (searchPath(matrix, i, j, false, false)) {
+                visited[i][j] = true;
+                if (pacific[i][j] && atlantic[i][j]) {
+                    res.add(new int[]{i, j});
+                } else if (searchPath(matrix, i, j, i, j)) {
                     res.add(new int[]{i, j});
                 }
             }
@@ -49,36 +54,47 @@ public class Solution0417 {
         return res;
     }
 
-    private boolean searchPath(int[][] matrix, int x, int y, Boolean pacific, Boolean atlantic) {
+    private boolean searchPath(int[][] matrix, int x, int y, int nextX, int nextY) {
+        //System.out.println("开始从(" + x + "," + y + ")处寻找");
         for (int i = 0; i < 4; i++) {
-            int newX = x + D[i][0];
-            int newY = y + D[i][1];
-            //System.out.println("newX: " + newX + " :: newY: " + newY);
-            if (inPacific(newX, newY)) {
-                pacific = true;
-                if (atlantic) {
+            if (inPacific(nextX, nextY) || inAtlantic(nextX, nextY)) {
+                continue;
+            }
+            int oldX = nextX;
+            int oldY = nextY;
+            nextX += D[i][0];
+            nextY += D[i][1];
+            //System.out.println("寻找目标(" + nextX + "," + nextY + ")");
+            if (inPacific(nextX, nextY)) {
+                pacific[x][y] = true;
+                if (atlantic[x][y]) {
+                    //System.out.println("从(" + x + "," + y + ")处寻找成功");
                     return true;
                 }
-            } else if (inAtlantic(newX, newY)) {
-                atlantic = true;
-                if (pacific) {
+            } else if (inAtlantic(nextX, nextY)) {
+                atlantic[x][y] = true;
+                if (pacific[x][y]) {
+                    //System.out.println("从(" + x + "," + y + ")处寻找成功");
                     return true;
                 }
-            } else if (!visited[newX][newY]) {//1，此时的点在矩阵内，2，下一个访问的点没有被访问过
-                visited[newX][newY] = true;
-                int nextVal = matrix[newX][newY];
-                int cur = matrix[x][y];
+            } else if (!visited[nextX][nextY]) {//1，此时的点在矩阵内，2，下一个访问的点没有被访问过
+                visited[nextX][nextY] = true;
+                int nextVal = matrix[nextX][nextY];
+                int cur = matrix[oldX][oldY];
+                //System.out.println(cur - nextVal);
                 if (cur >= nextVal) {
-                    if (flag[newX][newY]) {
+                    if (pacific[nextX][nextY] && atlantic[nextX][nextY]) {
+                        pacific[x][y] = true;
+                        atlantic[x][y] = true;
+                        //System.out.println("从(" + x + "," + y + ")处寻找成功");
                         return true;
                     } else {
-                        searchPath(matrix, newX, newY, pacific, atlantic);
+                        searchPath(matrix, x, y, nextX, nextY);
                     }
                 }
             }
         }
-        flag[x][y] = pacific && atlantic;
-        return flag[x][y];
+        return pacific[x][y] && atlantic[x][y];
     }
 
     private boolean inPacific(int x, int y) {
@@ -87,5 +103,10 @@ public class Solution0417 {
 
     private boolean inAtlantic(int x, int y) {
         return x >= m || y >= n;
+    }
+
+    public static void main(String[] args) {
+        Solution0417 solution = new Solution0417();
+        solution.pacificAtlantic(new int[][]{{1, 2, 2, 3, 5}, {3, 2, 3, 4, 4}, {2, 4, 5, 3, 1}, {6, 7, 1, 4, 5}, {5, 1, 1, 2, 4}});
     }
 }
