@@ -27,7 +27,6 @@ import java.util.List;
 public class Solution0417 {
     private static final int[][] D = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
     private int m, n;
-    private List<int[]> res = new ArrayList<>();
     private boolean[][] visited;
     private boolean[][] pacific;
     private boolean[][] atlantic;
@@ -35,7 +34,7 @@ public class Solution0417 {
     public List<int[]> pacificAtlantic(int[][] matrix) {
         m = matrix.length;
         if (m < 1) {
-            return res;
+            return new ArrayList<>();
         }
         n = matrix[0].length;
         pacific = new boolean[m][n];
@@ -44,6 +43,7 @@ public class Solution0417 {
         atlantic[0][n - 1] = true;
         pacific[m - 1][0] = true;
         atlantic[m - 1][0] = true;
+        List<int[]> res = new ArrayList<>();
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 visited = new boolean[m][n];
@@ -59,8 +59,6 @@ public class Solution0417 {
     }
 
     private boolean searchPath(int[][] matrix, int x, int y, int nextX, int nextY) {
-        System.out.println();
-        System.out.println("---------开始从(" + x + "," + y + ")处寻找");
         int oldX = nextX;
         int oldY = nextY;
 
@@ -70,36 +68,32 @@ public class Solution0417 {
             }
             nextX = oldX + D[i][0];
             nextY = oldY + D[i][1];
-            System.out.println("上一个点为(" + oldX + "," + oldY + ")");
-            System.out.println("寻找目标(" + nextX + "," + nextY + ")");
             if (inPacific(nextX, nextY)) {
                 pacific[x][y] = true;
+                pacific[oldX][oldY] = true;
                 if (atlantic[x][y]) {
-                    System.out.println("从(" + x + "," + y + ")处寻找成功");
                     return true;
                 }
             } else if (inAtlantic(nextX, nextY)) {
                 atlantic[x][y] = true;
+                atlantic[oldX][oldY] = true;
                 if (pacific[x][y]) {
-                    System.out.println("从(" + x + "," + y + ")处寻找成功");
                     return true;
                 }
             } else if (!visited[nextX][nextY]) {//1，此时的点在矩阵内，2，下一个访问的点没有被访问过
-
                 visited[nextX][nextY] = true;
                 int nextVal = matrix[nextX][nextY];
                 int cur = matrix[oldX][oldY];
-                System.out.println(cur - nextVal);
                 if (cur >= nextVal) {
                     if (pacific[nextX][nextY] && atlantic[nextX][nextY]) {
                         pacific[x][y] = true;
                         atlantic[x][y] = true;
-                        System.out.println("从(" + x + "," + y + ")处寻找成功");
                         return true;
                     } else {
                         searchPath(matrix, x, y, nextX, nextY);
                     }
                 }
+                visited[nextX][nextY] = false;
             }
         }
         return pacific[x][y] && atlantic[x][y];
@@ -111,21 +105,5 @@ public class Solution0417 {
 
     private boolean inAtlantic(int x, int y) {
         return x >= m || y >= n;
-    }
-
-//    private void add(int[][] matrix, int x, int y) {
-//        for (int i = 0; i < 4; i++) {
-//            int newX = x + D[i][0];
-//            int newY = x + D[i][1];
-//            if (matrix[newX][newY] >= matrix[x][y]) {
-//                pacific[newX][newY] = true;
-//                atlantic[newX][newY] = true;
-//            }
-//        }
-//    }
-
-    public static void main(String[] args) {
-        Solution0417 solution = new Solution0417();
-        solution.pacificAtlantic(new int[][]{{1, 2, 3, 4}, {12, 13, 14, 5}, {11, 16, 15, 6}, {10, 9, 8, 7}});
     }
 }
