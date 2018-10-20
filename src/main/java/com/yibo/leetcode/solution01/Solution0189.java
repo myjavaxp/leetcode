@@ -20,9 +20,7 @@ public class Solution0189 {
         }
         int[] tail = new int[k];
         System.arraycopy(nums, l - k, tail, 0, k);
-        for (int i = 0; i < l - k; i++) {
-            nums[l - 1 - i] = nums[l - k - i - 1];
-        }
+        System.arraycopy(nums, 0, nums, k, l - k);
         System.arraycopy(tail, 0, nums, 0, k);
     }
 }
