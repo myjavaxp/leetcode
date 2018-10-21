@@ -32,13 +32,8 @@ public class Solution0002 {
                 value = l2.val + flag;
                 l2 = l2.next;
             }
-            if (value > 9) {
-                flag = 1;
-                cur.val = (value % 10);
-            } else {
-                flag = 0;
-                cur.val = value;
-            }
+            cur.val = value % 10;
+            flag = value / 10;
             cur.next = new ListNode(0);
             cur = cur.next;
         }
