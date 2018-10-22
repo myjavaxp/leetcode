@@ -9,49 +9,29 @@ package com.yibo.leetcode.solution01;
  */
 public class Solution0204 {
     public int countPrimes(int n) {
-        if (n < 3) {
+        if (n <= 1) {
             return 0;
         }
-        if (n == 3) {
-            return 1;
-        }
-        if (n == 4) {
-            return 2;
-        }
-        if (n == 6) {
-            return 3;
-        }
-        if (n == 8) {
-            return 4;
-        }
-        if ((n - 1) % 2 == 0) {
-            return countPrimes(n - 1);
-        }
-        //从9开始判定
-        int sum = 4;
-        for (int i = 9; i < n; i += 2) {
-            if (isPrimes(i)) {
-                sum++;
+        // 默认所有的元素值都会设置为false，boolean初始值为false
+        boolean[] notPrime = new boolean[n];
+        notPrime[0] = true;
+        notPrime[1] = true;
+        for (int i = 2; i * i < n; i++) {
+            if (!notPrime[i]) {
+                // 如果i是一个质数， 将i的倍数设置为非质数,
+                //j += i相当于i的3倍，4倍……
+                for (int j = 2 * i; j < n; j += i) {
+                    notPrime[j] = true;
+                }
             }
         }
-        return sum;
-    }
-
-    private boolean isPrimes(int n) {
-        if (n < 2) {
-            return false;
-        }
-        if (n == 2 || n == 3) {
-            return true;
-        }
-        if (n % 2 == 0) {
-            return false;
-        }
-        for (int i = 3; i * i <= n; i += 2) {
-            if (n % i == 0) {
-                return false;
+        // 统计质数的个数
+        int result = 0;
+        for (boolean notPri : notPrime) {
+            if (!notPri) {
+                result++;
             }
         }
-        return true;
+        return result;
     }
 }
