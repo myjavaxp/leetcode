@@ -18,8 +18,6 @@ package com.yibo.leetcode.solution01;
  */
 public class Solution0064 {
     public int minPathSum(int[][] grid) {
-        int m = grid.length;//多少行
-        int n = grid[0].length;//多少列
         return 0;
     }
 }
