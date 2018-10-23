@@ -5,7 +5,7 @@ package com.yibo.leetcode.solution01;
  * 输出：[2,4,3,1]
  * 输出 [4,2,3,1]，[2,4,1,3] 和 [4,2,1,3] 也会被接受。
  */
-public class Soluton0905 {
+public class Solution0905 {
     public int[] sortArrayByParity(int[] A) {
         int index = 0;
         for (int i = 0; i < A.length; i++) {
