@@ -13,7 +13,7 @@ package com.yibo.leetcode.solution01;
  * 输入: [1, 2, 3, 5]
  * 输出: false
  * 解释: 数组不能分割成两个元素和相等的子集.
- * 类似问题322、377
+ * 类似问题322、377、494、139
  */
 public class Solution0416 {
     public boolean canPartition(int[] nums) {
