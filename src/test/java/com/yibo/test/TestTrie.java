@@ -1,6 +1,6 @@
 package com.yibo.test;
 
-import com.yibo.leetcode.day20180905.Palindrome;
+import com.yibo.leetcode.solution01.Solution0125;
 import com.yibo.leetcode.structrue.tree.Trie;
 import org.junit.jupiter.api.Test;
 
@@ -18,7 +18,7 @@ class TestTrie {
 
     @Test
     void test02() {
-        Palindrome palindrome = new Palindrome();
+        Solution0125 palindrome = new Solution0125();
         System.out.println(palindrome.isPalindrome("A man, a plan, a canal: Panama"));
     }
 }

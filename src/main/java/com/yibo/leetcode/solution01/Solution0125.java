@@ -1,11 +1,11 @@
-package com.yibo.leetcode.day20180905;
+package com.yibo.leetcode.solution01;
 
 /**
  * https://leetcode-cn.com/problems/valid-palindrome/description/
  *
  * @author Yibo
  */
-public class Palindrome {
+public class Solution0125 {
     public boolean isPalindrome(String s) {
         int i = 0;
         int j = s.length() - 1;
