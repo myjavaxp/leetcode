@@ -33,13 +33,12 @@ public class Solution0365 {
         if (z > x + y) {
             return false;
         }
-        int a = Math.max(x, y);
-        int b = Math.min(x, y);
-        int yu = a % b;
-        if (yu == 0) {
-            return z % b == 0;
-        } else {
-            return z % yu == 0 || z % (a - yu) == 0 || z % (Math.abs(b - yu)) == 0;
+        while (y != 0) {
+            int r = x % y;//2
+            //noinspection SuspiciousNameCombination
+            x = y;
+            y = r;
         }
+        return z % x == 0;
     }
 }
