@@ -9,6 +9,7 @@ public class FinalizeEscapeGC {
         System.out.println("yes,i'm still alive");
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     protected void finalize() throws Throwable {
         super.finalize();
