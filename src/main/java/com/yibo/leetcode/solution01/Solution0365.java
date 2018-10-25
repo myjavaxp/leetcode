@@ -21,6 +21,25 @@ package com.yibo.leetcode.solution01;
  */
 public class Solution0365 {
     public boolean canMeasureWater(int x, int y, int z) {
-        return true;
+        if (z == 0) {
+            return true;
+        }
+        if (x == 0) {
+            return z == y;
+        }
+        if (y == 0) {
+            return z == x;
+        }
+        if (z > x + y) {
+            return false;
+        }
+        int a = Math.max(x, y);
+        int b = Math.min(x, y);
+        int yu = a % b;
+        if (yu == 0) {
+            return z % b == 0;
+        } else {
+            return z % yu == 0 || z % (a - yu) == 0 || z % (Math.abs(b - yu)) == 0;
+        }
     }
 }
