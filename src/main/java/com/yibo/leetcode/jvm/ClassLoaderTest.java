@@ -16,6 +16,7 @@ public class ClassLoaderTest {
                         return super.loadClass(name);
                     }
                     byte[] b = new byte[inputStream.available()];
+                    //noinspection ResultOfMethodCallIgnored
                     inputStream.read(b);
                     return defineClass(name, b, 0, b.length);
                 } catch (IOException e) {
