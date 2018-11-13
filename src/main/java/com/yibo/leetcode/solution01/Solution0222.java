@@ -26,6 +26,6 @@ public class Solution0222 {
         if (root == null) {
             return 0;
         }
-        return 1;
+        return countNodes(root.left) + countNodes(root.right) + 1;
     }
 }
