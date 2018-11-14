@@ -4,6 +4,12 @@ import com.yibo.leetcode.model.TreeNode;
 
 public class Solution0404 {
     public int sumOfLeftLeaves(TreeNode root) {
-        return 0;
+        if (root == null) {
+            return 0;
+        }
+        if (root.left != null && root.left.right == null && root.left.left == null) {
+            return root.left.val + sumOfLeftLeaves(root.right);
+        }
+        return sumOfLeftLeaves(root.left) + sumOfLeftLeaves(root.right);
     }
 }
