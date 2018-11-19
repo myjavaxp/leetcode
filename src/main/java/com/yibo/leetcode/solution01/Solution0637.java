@@ -14,7 +14,7 @@ public class Solution0637 {
             return list;
         }
         Queue<TreeNode> queue = new LinkedList<>();
-        queue.offer(root);
+        queue.add(root);
         while (!queue.isEmpty()) {
             int size = queue.size();
             long sum = 0;
@@ -23,10 +23,10 @@ public class Solution0637 {
                 assert node != null;
                 sum += node.val;
                 if (node.left != null) {
-                    queue.offer(node.left);
+                    queue.add(node.left);
                 }
                 if (node.right != null) {
-                    queue.offer(node.right);
+                    queue.add(node.right);
                 }
             }
             double avg = (double) sum / size;
