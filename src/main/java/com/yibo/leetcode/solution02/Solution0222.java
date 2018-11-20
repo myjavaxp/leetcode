@@ -2,32 +2,38 @@ package com.yibo.leetcode.solution02;
 
 import com.yibo.leetcode.model.TreeNode;
 
-import java.util.LinkedList;
-import java.util.Queue;
-
 /**
- * 作弊代码，不推荐
+ * 推荐解法
  */
 public class Solution0222 {
-    public int countNodes(TreeNode root) {
-        if (root == null) return 0;
-        int count = 1;
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.offer(root);
-        while (queue.peek() != null) {
-            TreeNode cur = queue.poll();
-            if (cur.val != -105) {
-                cur.val = -105;
-                if (cur.left != null) {
-                    queue.offer(cur.left);
-                    count++;
-                }
-                if (cur.right != null) {
-                    queue.offer(cur.right);
-                    count++;
-                }
-            }
+    private int leftmost(TreeNode root) {
+        int count = 0;
+        while (root != null) {
+            count++;
+            root = root.left;
         }
         return count;
+    }
+
+    private int countLeft(TreeNode root, int leftmost) {
+        if (root == null) {
+            return 0;
+        }
+        int count = 1;
+        leftmost--;
+        int middle = leftmost(root.right);
+        if (leftmost == middle) {
+            count += (1 << leftmost) - 1;
+            count += countLeft(root.right, middle);
+        } else {
+            count += (1 << middle) - 1;
+            count += countLeft(root.left, leftmost);
+        }
+        return count;
+    }
+
+    public int countNodes(TreeNode root) {
+        int leftmost = leftmost(root);
+        return countLeft(root, leftmost);
     }
 }
