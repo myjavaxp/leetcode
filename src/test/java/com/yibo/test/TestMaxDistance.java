@@ -1,6 +1,7 @@
 package com.yibo.test;
 
 import com.yibo.leetcode.history.*;
+import com.yibo.leetcode.solution01.Solution0005;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -36,8 +37,8 @@ class TestMaxDistance {
 
     @Test
     void test05() {
-        LongestPalindrome longestPalindrome = new LongestPalindrome();
-        String palindrome = longestPalindrome.longestPalindrome("abcbaabcdcba");
+        Solution0005 solution0005 = new Solution0005();
+        String palindrome = solution0005.longestPalindrome("abba");
         System.out.println(palindrome);
     }
 
