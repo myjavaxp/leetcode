@@ -3,13 +3,13 @@ package com.yibo.test;
 import com.yibo.leetcode.structrue.Set;
 import com.yibo.leetcode.structrue.list.LinkedList;
 import com.yibo.leetcode.structrue.set.LinkedListSet;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.util.Random;
 
-class TestSet {
+public class TestSet {
     @Test
-    void test01() {
+    public void test01() {
         Set<Integer> set = new LinkedListSet<>();
         Random random = new Random();
         for (int i = 0; i < 20; i++) {
@@ -29,7 +29,7 @@ class TestSet {
     }
 
     @Test
-    void test02() {
+    public void test02() {
         LinkedList<Integer> list = new LinkedList<>();
         for (int i = 1; i < 10; i++) {
             list.addFirst(i);

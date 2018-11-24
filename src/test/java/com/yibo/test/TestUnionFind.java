@@ -4,13 +4,13 @@ import com.yibo.leetcode.structrue.UnionFind;
 import com.yibo.leetcode.structrue.uf.UnionFind3;
 import com.yibo.leetcode.structrue.uf.UnionFind4;
 import com.yibo.leetcode.structrue.uf.UnionFind5;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.util.Random;
 
-class TestUnionFind {
+public class TestUnionFind {
     @Test
-    void test01() {
+    public void test01() {
         int size = 100000000;
         int m = 100000000;
         //UnionFind uf1 = new UnionFind1(size);

@@ -1,7 +1,7 @@
 package com.yibo.test;
 
-import com.yibo.leetcode.day20180814.ListNode;
 import com.yibo.leetcode.algorithm.HailStone;
+import com.yibo.leetcode.day20180814.ListNode;
 import com.yibo.leetcode.structrue.Queue;
 import com.yibo.leetcode.structrue.Stack;
 import com.yibo.leetcode.structrue.list.Array;
@@ -13,13 +13,13 @@ import com.yibo.leetcode.structrue.queue.LoopQueue;
 import com.yibo.leetcode.structrue.stack.LinkedListStack;
 import com.yibo.leetcode.structrue.tree.BinaryTree;
 import com.yibo.leetcode.util.ArrayUtil;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.util.*;
 
-class TestArray {
+public class TestArray {
     @Test
-    void test01() {
+    public void test01() {
         Array<Integer> array = new Array<>(20);
         for (int i = 0; i < 11; i++) {
             array.addLast(i);
@@ -62,7 +62,7 @@ class TestArray {
     }
 
     @Test
-    void test02() {
+    public void test02() {
         Array<Integer> array = new Array<>(1);
         array.addFirst(1);
         array.addFirst(1);
@@ -79,7 +79,7 @@ class TestArray {
     }
 
     @Test
-    void test03() {
+    public void test03() {
         Queue<Integer> queue = new LinkedListQueue<>();
         for (int i = 0; i < 10; i++) {
             queue.enqueue(i);
@@ -92,7 +92,7 @@ class TestArray {
     }
 
     @Test
-    void test04() {
+    public void test04() {
         int optCount = 100000;
         Queue<Integer> queue = new ArrayQueue<>();
         double time1 = testQueue(queue, optCount);
@@ -119,7 +119,7 @@ class TestArray {
     }
 
     @Test
-    void test05() {
+    public void test05() {
         LinkedList<Integer> linkedList = new LinkedList<>();
         for (int i = 0; i < 10; i++) {
             linkedList.addFirst(i);
@@ -132,7 +132,7 @@ class TestArray {
     }
 
     @Test
-    void test06() {
+    public void test06() {
         Stack<Integer> stack = new LinkedListStack<>();
         for (int i = 0; i < 10; i++) {
             stack.push(i);
@@ -144,7 +144,7 @@ class TestArray {
     }
 
     @Test
-    void test07() {
+    public void test07() {
         RemoveElementsSolution removeElements = new RemoveElementsSolution();
         ListNode listNode = new ListNode(new int[]{1, 2, 3, 6, 4, 5, 6});
         ListNode node = removeElements.removeElements(listNode, 6);
@@ -152,7 +152,7 @@ class TestArray {
     }
 
     @Test
-    void test08() {
+    public void test08() {
         BinaryTree<Integer> tree = new BinaryTree<>();
         int[] arr = new int[]{3, 4, 1, 0, 99, 32};
         for (int a : arr) {
@@ -177,7 +177,7 @@ class TestArray {
     }
 
     @Test
-    void test09() {
+    public void test09() {
         BinaryTree<Integer> tree = new BinaryTree<>();
         int n = 100;
         Random random = new Random();
@@ -195,7 +195,7 @@ class TestArray {
     }
 
     @Test
-    void test10() {
+    public void test10() {
         BinaryTree<Integer> tree = new BinaryTree<>();
         int n = 101;
         Random random = new Random();
@@ -215,19 +215,19 @@ class TestArray {
     }
 
     @Test
-    void test11() {
+    public void test11() {
         Integer[] array = ArrayUtil.generateRandomArray(100, 0, 10);
         HashSet<Integer> set = new HashSet<>(Arrays.asList(array));
         System.out.println(set);
     }
 
     @Test
-    void test12() {
+    public void test12() {
         System.out.println(Character.SIZE);
     }
 
     @Test
-    void test13() {
+    public void test13() {
         HailStone hailStone = new HailStone();
         hailStone.hailStone(100000).forEach(System.out::println);
     }

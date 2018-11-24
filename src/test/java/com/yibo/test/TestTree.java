@@ -4,16 +4,16 @@ import com.yibo.leetcode.structrue.tree.AVLTree;
 import com.yibo.leetcode.structrue.tree.RedBlackTree;
 import com.yibo.leetcode.structrue.tree.SegmentTree;
 import com.yibo.leetcode.structrue.util.FileOperation;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-class TestTree {
+public class TestTree {
     private static final String FILE_PATH = "C:\\Users\\Yibo\\IdeaProjects\\leetcode\\src\\main\\resources\\pride-and-prejudice.txt";
 
     @Test
-    void test01() {
+    public void test01() {
         Integer[] nums = {-1, 0, 3, -5, 2, -1};
         SegmentTree<Integer> tree = new SegmentTree<>(nums, ((a, b) -> a + b));
         System.out.println(tree);
@@ -21,7 +21,7 @@ class TestTree {
     }
 
     @Test
-    void test02() {
+    public void test02() {
         AVLTree<Integer, Integer> map = new AVLTree<>();
         Random random = new Random();
         for (int i = 0; i < 100000; i++) {
@@ -32,7 +32,7 @@ class TestTree {
     }
 
     @Test
-    void test03() {
+    public void test03() {
         System.out.println("Pride and Prejudice");
 
         ArrayList<String> words = new ArrayList<>();
@@ -64,7 +64,7 @@ class TestTree {
     }
 
     @Test
-    void test04() {
+    public void test04() {
         System.out.println("Pride and Prejudice");
         ArrayList<String> words = new ArrayList<>();
         if (FileOperation.readFile(FILE_PATH, words)) {

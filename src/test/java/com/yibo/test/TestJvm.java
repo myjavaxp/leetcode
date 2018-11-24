@@ -1,11 +1,11 @@
 package com.yibo.test;
 
 import com.yibo.leetcode.jvm.ConstClass;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-class TestJvm {
+public class TestJvm {
     @Test
-    void test01() {
+    public void test01() {
         System.out.println(ConstClass.HELLO);
     }
 }
