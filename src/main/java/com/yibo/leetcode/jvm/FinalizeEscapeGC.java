@@ -19,14 +19,11 @@ public class FinalizeEscapeGC {
 
     public static void main(String[] args) throws InterruptedException {
         SAVE_HOOK = new FinalizeEscapeGC();
-        SAVE_HOOK = null;
-        System.gc();
-        TimeUnit.SECONDS.sleep(1);
-        if (SAVE_HOOK != null) {
-            SAVE_HOOK.isAlive();
-        } else {
-            System.out.println("no,i'm dead");
-        }
+        hook();
+        hook();
+    }
+
+    private static void hook() throws InterruptedException {
         SAVE_HOOK = null;
         System.gc();
         TimeUnit.SECONDS.sleep(1);

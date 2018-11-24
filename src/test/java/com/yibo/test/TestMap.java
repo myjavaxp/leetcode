@@ -4,7 +4,6 @@ import com.yibo.leetcode.structrue.Map;
 import com.yibo.leetcode.structrue.map.BinaryTreeMap;
 import org.junit.Test;
 
-
 public class TestMap {
     @Test
     public void test01() {
