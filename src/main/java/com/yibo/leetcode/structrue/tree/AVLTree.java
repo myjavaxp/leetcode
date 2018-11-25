@@ -21,8 +21,14 @@ public class AVLTree<K extends Comparable<K>, V> {
     private int size;
 
     public AVLTree() {
-        root = null;
-        size = 0;
+    }
+
+    public AVLTree(K[] array) {
+        if (array != null && array.length > 0) {
+            for (K k : array) {
+                put(k, null);
+            }
+        }
     }
 
     public int getSize() {
@@ -109,10 +115,7 @@ public class AVLTree<K extends Comparable<K>, V> {
         y.left = T3;
 
         // 更新height
-        y.height = Math.max(getHeight(y.left), getHeight(y.right)) + 1;
-        x.height = Math.max(getHeight(x.left), getHeight(x.right)) + 1;
-
-        return x;
+        return updateHeight(y, x);
     }
 
     // 对节点y进行向左旋转操作，返回旋转后新的根节点x
@@ -133,9 +136,14 @@ public class AVLTree<K extends Comparable<K>, V> {
         y.right = T2;
 
         // 更新height
+        return updateHeight(y, x);
+    }
+
+    private Node updateHeight(Node y, Node x) {
         y.height = Math.max(getHeight(y.left), getHeight(y.right)) + 1;
         x.height = Math.max(getHeight(x.left), getHeight(x.right)) + 1;
 
+        //noinspection SuspiciousNameCombination
         return x;
     }
 
@@ -147,68 +155,31 @@ public class AVLTree<K extends Comparable<K>, V> {
     // 向以node为根的二分搜索树中插入元素(key, value)，递归算法
     // 返回插入新节点后二分搜索树的根
     private Node put(Node node, K key, V value) {
-
         if (node == null) {
             size++;
             return new Node(key, value);
         }
-
         if (key.compareTo(node.key) < 0) {
             node.left = put(node.left, key, value);
         } else if (key.compareTo(node.key) > 0) {
             node.right = put(node.right, key, value);
-        } else // key.compareTo(node.key) == 0
-        {
+        } else {
             node.value = value;
         }
-
-        // 更新height
-        node.height = 1 + Math.max(getHeight(node.left), getHeight(node.right));
-
-        // 计算平衡因子
-        int balanceFactor = getBalanceFactor(node);
-
-        // 平衡维护
-        // LL
-        if (balanceFactor > 1 && getBalanceFactor(node.left) >= 0) {
-            return rightRotate(node);
-        }
-
-        // RR
-        if (balanceFactor < -1 && getBalanceFactor(node.right) <= 0) {
-            return leftRotate(node);
-        }
-
-        // LR
-        if (balanceFactor > 1 && getBalanceFactor(node.left) < 0) {
-            //noinspection SuspiciousNameCombination
-            node.left = leftRotate(node.left);
-            return rightRotate(node);
-        }
-
-        // RL
-        if (balanceFactor < -1 && getBalanceFactor(node.right) > 0) {
-            //noinspection SuspiciousNameCombination
-            node.right = rightRotate(node.right);
-            return leftRotate(node);
-        }
-
-        return node;
+        // 更新height维护平衡
+        return makeBalance(node);
     }
 
     // 返回以node为根节点的二分搜索树中，key所在的节点
     private Node getNode(Node node, K key) {
-
         if (node == null) {
             return null;
         }
-
         if (key.equals(node.key)) {
             return node;
         } else if (key.compareTo(node.key) < 0) {
             return getNode(node.left, key);
-        } else // if(key.compareTo(node.key) > 0)
-        {
+        } else {
             return getNode(node.right, key);
         }
     }
@@ -218,7 +189,6 @@ public class AVLTree<K extends Comparable<K>, V> {
     }
 
     public V get(K key) {
-
         Node node = getNode(root, key);
         return node == null ? null : node.value;
     }
@@ -243,11 +213,9 @@ public class AVLTree<K extends Comparable<K>, V> {
     }
 
     private Node remove(Node node, K key) {
-
         if (node == null) {
             return null;
         }
-
         Node retNode;
         if (key.compareTo(node.key) < 0) {
             node.left = remove(node.left, key);
@@ -296,7 +264,10 @@ public class AVLTree<K extends Comparable<K>, V> {
         if (retNode == null) {
             return null;
         }
+        return makeBalance(retNode);
+    }
 
+    private Node makeBalance(Node retNode) {
         // 更新height
         retNode.height = 1 + Math.max(getHeight(retNode.left), getHeight(retNode.right));
 
@@ -320,14 +291,12 @@ public class AVLTree<K extends Comparable<K>, V> {
             retNode.left = leftRotate(retNode.left);
             return rightRotate(retNode);
         }
-
         // RL
         if (balanceFactor < -1 && getBalanceFactor(retNode.right) > 0) {
             //noinspection SuspiciousNameCombination
             retNode.right = rightRotate(retNode.right);
             return leftRotate(retNode);
         }
-
         return retNode;
     }
 }
