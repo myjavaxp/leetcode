@@ -129,6 +129,9 @@ public class MaxHeap<E extends Comparable<E>> {
      * @return 以前的最大值
      */
     public E replace(E e) {
+        if (data == null || data.size() == 0) {
+            throw new IllegalArgumentException("Heap is empty!");
+        }
         E ret = findMax();
         data.set(0, e);
         siftDown(0);
