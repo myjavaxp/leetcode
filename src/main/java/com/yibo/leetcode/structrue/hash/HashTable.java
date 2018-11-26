@@ -2,15 +2,16 @@ package com.yibo.leetcode.structrue.hash;
 
 import java.util.TreeMap;
 
-public class HashTable<K, V> {
+@SuppressWarnings("unused")
+public class HashTable<K extends Comparable<K>, V> {
     private TreeMap<K, V>[] hashTable;
     private int size;
     private int m;
 
     @SuppressWarnings("unchecked")
-    public HashTable(int m) {
+    private HashTable(int m) {
         this.m = m;
-        hashTable = new TreeMap[m];
+        hashTable = (TreeMap<K, V>[]) new TreeMap[m];
         for (int i = 0; i < m; i++) {
             hashTable[i] = new TreeMap<>();
         }
