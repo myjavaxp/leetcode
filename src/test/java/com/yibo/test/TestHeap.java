@@ -4,6 +4,7 @@ import com.yibo.leetcode.solution01.Solution0347;
 import com.yibo.leetcode.structrue.heap.MaxHeap;
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -12,15 +13,16 @@ public class TestHeap {
     public void test01() {
         MaxHeap<Integer> heap = new MaxHeap<>();
         Random random = new Random();
-        int n = 1000000;
+        int n = 100;
         for (int i = 0; i < n; i++) {
-            heap.add(random.nextInt(Integer.MAX_VALUE));
+            heap.add(random.nextInt(10000));
         }
-        System.out.println(heap.size());
+        System.out.println(heap);
         int[] arr = new int[n];
         for (int i = 0; i < n; i++) {
             arr[i] = heap.extractMax();
         }
+        System.out.println(Arrays.toString(arr));
         for (int i = 0; i < n - 1; i++) {
             if (arr[i] < arr[i + 1]) {
                 throw new RuntimeException("ERROR");
@@ -28,6 +30,8 @@ public class TestHeap {
         }
         System.out.println("正确排序");
         System.out.println(heap);
+        MaxHeap<Long> maxHeap = new MaxHeap<>(new Long[1]);
+        System.out.println(maxHeap.isEmpty());
     }
 
     @Test
