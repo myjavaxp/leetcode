@@ -107,17 +107,18 @@ public class MaxHeap<E extends Comparable<E>> {
         return ret;
     }
 
-    private void siftDown(int index) {
-        while (leftChild(index) < data.size()) {
-            int j = leftChild(index);
+    private void siftDown(int k) {
+        while (leftChild(k) < data.size()) {
+            int j = leftChild(k);
             if (j + 1 < data.size() && data.get(j + 1).compareTo(data.get(j)) > 0) {
                 j++;
             }
-            if (data.get(index).compareTo(data.get(j)) >= 0) {
+            //此时data.get(j)是左右俩孩子中的最大值
+            if (data.get(k).compareTo(data.get(j)) >= 0) {
                 break;
             }
-            swap(index, j);
-            index = j;
+            swap(k, j);
+            k = j;
         }
     }
 
