@@ -21,7 +21,7 @@ public class MaxHeap<E extends Comparable<E>> {
         if (array == null) {
             data = new ArrayList<>();
         } else {
-            data = Arrays.asList(array);
+            data = new ArrayList<>(Arrays.asList(array));
             if (data.size() > 1) {
                 for (int i = parent(array.length - 1); i >= 0; i--) {
                     siftDown(i);
