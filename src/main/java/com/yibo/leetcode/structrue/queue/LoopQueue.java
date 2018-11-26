@@ -2,14 +2,14 @@ package com.yibo.leetcode.structrue.queue;
 
 import com.yibo.leetcode.structrue.Queue;
 
+@SuppressWarnings("unchecked")
 public class LoopQueue<E> implements Queue<E> {
     private E[] data;
     private int front;
     private int tail;
     private int size;
 
-    @SuppressWarnings("unchecked")
-    public LoopQueue(int capacity) {
+    private LoopQueue(int capacity) {
         data = (E[]) new Object[capacity + 1];
         front = 0;
         tail = 0;
@@ -24,7 +24,6 @@ public class LoopQueue<E> implements Queue<E> {
         return data.length - 1;
     }
 
-    @SuppressWarnings("unchecked")
     private void resize(int newCapacity) {
         E[] newData = (E[]) new Object[newCapacity + 1];
         for (int i = 0; i < size; i++) {

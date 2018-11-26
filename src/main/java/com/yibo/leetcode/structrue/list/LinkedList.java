@@ -34,6 +34,7 @@ public class LinkedList<E> {
         add(0, e);
     }
 
+    @SuppressWarnings("unused")
     public void addLast(E e) {
         add(size, e);
     }
@@ -107,14 +108,14 @@ public class LinkedList<E> {
 
     @Override
     public String toString() {
-        StringBuilder stringBuilder = new StringBuilder();
+        StringBuilder result = new StringBuilder();
         Node node = dummyHead.next;
         while (node != null) {
-            stringBuilder.append(node).append(" -> ");
+            result.append(node).append(" -> ");
             node = node.next;
         }
-        stringBuilder.append("NULL");
-        return stringBuilder.toString();
+        result.append("null");
+        return result.toString();
     }
 
     private class Node {
@@ -124,14 +125,6 @@ public class LinkedList<E> {
         private Node(E e, Node next) {
             this.e = e;
             this.next = next;
-        }
-
-        private Node(E e) {
-            this(e, null);
-        }
-
-        private Node() {
-            this(null, null);
         }
 
         @Override

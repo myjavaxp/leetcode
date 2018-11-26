@@ -1,27 +1,28 @@
 package com.yibo.leetcode.structrue.queue;
 
-import com.yibo.leetcode.structrue.list.Array;
 import com.yibo.leetcode.structrue.Queue;
 
+import java.util.ArrayList;
+
 public class ArrayQueue<E> implements Queue<E> {
-    private Array<E> array;
+    private ArrayList<E> array;
 
     public ArrayQueue(int capacity) {
-        array = new Array<>(capacity);
+        array = new ArrayList<>(capacity);
     }
 
     public ArrayQueue() {
-        array = new Array<>();
+        array = new ArrayList<>();
     }
 
     @Override
     public void enqueue(E e) {
-        array.addLast(e);
+        array.add(e);
     }
 
     @Override
     public E dequeue() {
-        return array.removeFirst();
+        return array.remove(0);
     }
 
     @Override
@@ -37,8 +38,5 @@ public class ArrayQueue<E> implements Queue<E> {
     @Override
     public boolean isEmpty() {
         return array.isEmpty();
-    }
-    public int getCapacity(){
-        return array.getCapacity();
     }
 }

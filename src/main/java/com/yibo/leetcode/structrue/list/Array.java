@@ -3,6 +3,7 @@ package com.yibo.leetcode.structrue.list;
 import java.io.Serializable;
 import java.util.Arrays;
 
+@SuppressWarnings({"unchecked"})
 public class Array<E> implements Serializable {
     private static final long serialVersionUID = -3926745631703053617L;
     private E[] data;
@@ -13,13 +14,11 @@ public class Array<E> implements Serializable {
      *
      * @param capacity 数组最大容量
      */
-    @SuppressWarnings("unchecked")
     public Array(int capacity) {
         data = (E[]) new Object[capacity];
         size = 0;
     }
 
-    @SuppressWarnings("unchecked")
     public Array(E[] data) {
         this.data = (E[]) new Object[data.length];
         System.arraycopy(data, 0, this.data, 0, data.length);

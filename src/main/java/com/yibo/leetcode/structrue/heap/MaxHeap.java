@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-@SuppressWarnings("unused")
 public class MaxHeap<E extends Comparable<E>> {
     private List<E> data;
 
@@ -14,6 +13,7 @@ public class MaxHeap<E extends Comparable<E>> {
 
     /**
      * 构造函数 把一个数组构造为一个最大堆 从最后一个非叶子节点往回走，依次执行siftDown操作，使之成为一个最大堆
+     * 此时算法复杂度为O(n)
      *
      * @param array 数组
      */
