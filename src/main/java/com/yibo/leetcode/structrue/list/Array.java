@@ -3,7 +3,6 @@ package com.yibo.leetcode.structrue.list;
 import java.io.Serializable;
 import java.util.Arrays;
 
-@SuppressWarnings({"unchecked"})
 public class Array<E> implements Serializable {
     private static final long serialVersionUID = -3926745631703053617L;
     private E[] data;
@@ -14,15 +13,21 @@ public class Array<E> implements Serializable {
      *
      * @param capacity 数组最大容量
      */
+    @SuppressWarnings({"unchecked"})
     public Array(int capacity) {
         data = (E[]) new Object[capacity];
-        size = 0;
     }
 
-    public Array(E[] data) {
-        this.data = (E[]) new Object[data.length];
-        System.arraycopy(data, 0, this.data, 0, data.length);
-        this.size = data.length;
+    @SuppressWarnings({"unchecked"})
+    @SafeVarargs
+    public Array(E... a) {
+        if (a == null) {
+            data = (E[]) new Object[0];
+        } else {
+            this.data = (E[]) new Object[a.length];
+            System.arraycopy(a, 0, this.data, 0, a.length);
+            this.size = data.length;
+        }
     }
 
     /**
@@ -64,6 +69,10 @@ public class Array<E> implements Serializable {
     }
 
     public void addLast(E e) {
+        add(size, e);
+    }
+
+    public void add(E e) {
         add(size, e);
     }
 
@@ -163,23 +172,25 @@ public class Array<E> implements Serializable {
         if (i < 0 || i >= size || j < 0 || j >= size) {
             throw new IllegalArgumentException("Index is illegal");
         }
-        E temp = data[i];
-        data[i] = data[j];
-        data[j] = temp;
+        if (i != j) {
+            E temp = data[i];
+            data[i] = data[j];
+            data[j] = temp;
+        }
     }
 
     @Override
     public String toString() {
-        StringBuilder res = new StringBuilder();
-        res.append(String.format("Array: size = %d, capacity = %d\n", size, data.length));
-        res.append('[');
+        StringBuilder s = new StringBuilder();
+        s.append(String.format("Array: size = %d, capacity = %d\n", size, data.length));
+        s.append('[');
         for (int i = 0; i < size; i++) {
-            res.append(data[i]);
+            s.append(data[i]);
             if (i != size - 1) {
-                res.append(", ");
+                s.append(", ");
             }
         }
-        res.append(']');
-        return res.toString();
+        s.append(']');
+        return s.toString();
     }
 }
