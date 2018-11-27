@@ -55,7 +55,7 @@ public class MaxHeap<E extends Comparable<E>> {
      */
     private int parent(int index) {
         if (index == 0) {
-            throw new IllegalArgumentException("Index 0 doesn't have parent!");
+            throw new IllegalArgumentException("Index 0 doesn't have a parent!");
         }
         return (index - 1) / 2;
     }
@@ -145,16 +145,18 @@ public class MaxHeap<E extends Comparable<E>> {
 
     @Override
     public String toString() {
-        StringBuilder result = new StringBuilder();
-        result.append(getClass().getSimpleName()).append(": [");
-        if (!isEmpty()) {
-            for (int i = 0; i < size() - 1; i++) {
-                result.append(data.get(i)).append(" :: ");
+        int iMax = data.size() - 1;
+        if (iMax == -1)
+            return "[]";
+        StringBuilder b = new StringBuilder();
+        b.append('[');
+        for (int i = 0; ; i++) {
+            b.append(data.get(i));
+            if (i == iMax) {
+                return b.append(']').toString();
             }
-            result.append(data.get(size() - 1));
+            b.append(", ");
         }
-        result.append("]");
-        return result.toString();
     }
 
     private void swap(int a, int b) {
