@@ -10,7 +10,7 @@ import java.util.TreeMap;
  * 但是，JDK中并没有这样要求这样，在它维护的内部类TreeNode中有个方法tieBreakOrder解决了可比性问题。
  * 我们可以借用JDK中的这个方法。
  *
- * @param <K> key 解决哈希冲突，本类中要求是需要实现Comparable接口，但是，JDK中并没有实现
+ * @param <K> key
  * @param <V> value
  */
 public class HashTable<K, V> implements Map<K, V> {
