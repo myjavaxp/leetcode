@@ -1,11 +1,9 @@
 package com.yibo.leetcode.structrue.heap;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class MaxHeap<E extends Comparable<E>> {
-    private List<E> data;
+    private ArrayList<E> data;
 
     public MaxHeap() {
         data = new ArrayList<>();
@@ -17,11 +15,18 @@ public class MaxHeap<E extends Comparable<E>> {
      *
      * @param array 数组
      */
-    public MaxHeap(E[] array) {
+    @SafeVarargs
+    public MaxHeap(E... array) {
         if (array == null) {
             data = new ArrayList<>();
         } else {
-            data = Arrays.asList(array);
+            data = new ArrayList<>(array.length);
+            for (E e : array) {
+                if (e == null) {
+                    throw new IllegalArgumentException("传入的数组元素不能为空");
+                }
+                data.add(e);
+            }
             if (data.size() > 1) {
                 for (int i = parent(array.length - 1); i >= 0; i--) {
                     siftDown(i);
