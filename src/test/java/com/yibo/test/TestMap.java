@@ -1,6 +1,7 @@
 package com.yibo.test;
 
 import com.yibo.leetcode.structrue.Map;
+import com.yibo.leetcode.structrue.hash.HashTable;
 import com.yibo.leetcode.structrue.map.BinaryTreeMap;
 import org.junit.Test;
 
@@ -20,5 +21,11 @@ public class TestMap {
         map.remove(99);
         System.out.println(map.size());
         System.out.println(map.get(100));
+    }
+
+    @Test
+    public void test02() {
+        HashTable<Integer, Integer> table = new HashTable<>();
+        System.out.println(table);
     }
 }

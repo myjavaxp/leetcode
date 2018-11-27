@@ -240,4 +240,10 @@ public class TestArray {
         System.out.println(array);
         System.out.println(new Array<>(new Integer[0]));
     }
+    @Test
+    public void test15(){
+        LinkedList<Integer> list=new LinkedList<>();
+        list.addLast(1);
+        System.out.println(list);
+    }
 }

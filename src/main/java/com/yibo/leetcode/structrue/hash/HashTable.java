@@ -2,6 +2,14 @@ package com.yibo.leetcode.structrue.hash;
 
 import java.util.TreeMap;
 
+/**
+ * 简易哈希表。
+ * 解决哈希冲突，需要把同一桶中的k-v给放入一个红黑树中。因此本类中的K需要实现Comparable接口
+ * 但是，JDK中并没有这样要求这样，在它维护的内部类TreeNode中有个方法tieBreakOrder解决了可比性问题。
+ *
+ * @param <K> key 解决哈希冲突，本类中要求是需要实现Comparable接口，但是，JDK中并没有实现
+ * @param <V> value
+ */
 public class HashTable<K extends Comparable<K>, V> {
     private TreeMap<K, V>[] hashTable;
     private int size;
