@@ -30,7 +30,7 @@ public class TestHeap {
         }
         System.out.println("正确排序");
         System.out.println(heap);
-        MaxHeap<Long> maxHeap = new MaxHeap<>(new Long[0]);
+        MaxHeap<Long> maxHeap = new MaxHeap<>(new Long[3]);
         System.out.println(maxHeap.isEmpty());
     }
 

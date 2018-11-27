@@ -13,22 +13,21 @@ public class MaxHeap<E extends Comparable<E>> {
      * 构造函数 把一个数组构造为一个最大堆 从最后一个非叶子节点往回走，依次执行siftDown操作，使之成为一个最大堆
      * 此时算法复杂度为O(n)
      *
-     * @param array 数组
+     * @param a 数组
      */
     @SafeVarargs
-    public MaxHeap(E... array) {
-        if (array == null) {
+    public MaxHeap(E... a) {
+        if (a == null) {
             data = new ArrayList<>();
         } else {
-            data = new ArrayList<>(array.length);
-            for (E e : array) {
-                if (e == null) {
-                    throw new IllegalArgumentException("传入的数组元素不能为空");
+            data = new ArrayList<>(a.length);
+            for (E e : a) {
+                if (e != null) {
+                    data.add(e);
                 }
-                data.add(e);
             }
             if (data.size() > 1) {
-                for (int i = parent(array.length - 1); i >= 0; i--) {
+                for (int i = parent(a.length - 1); i >= 0; i--) {
                     siftDown(i);
                 }
             }
