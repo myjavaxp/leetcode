@@ -17,7 +17,6 @@ public class LinkedList<E> {
         return size == 0;
     }
 
-
     public void add(int index, E e) {
         if (index < 0 || index > size) {
             throw new IllegalArgumentException("Add failed. Illegal index.");
@@ -30,11 +29,14 @@ public class LinkedList<E> {
         size++;
     }
 
+    public void add(E e) {
+        addLast(e);
+    }
+
     public void addFirst(E e) {
         add(0, e);
     }
 
-    @SuppressWarnings("unused")
     public void addLast(E e) {
         add(size, e);
     }
@@ -87,35 +89,40 @@ public class LinkedList<E> {
         return delNode.e;
     }
 
+    /**
+     * 移除链表中所有和e相等的元素
+     *
+     * @param e 待移除的元素
+     */
     public void removeElement(E e) {
         if (size == 0) {
             return;
         }
-        Node node = dummyHead.next;
+        Node cur = dummyHead.next;
         Node prev = dummyHead;
-        while (node != null) {
-            if (e.equals(node.e)) {
-                prev.next = node.next;
-                node.next = null;
-                node = prev.next;
+        while (cur != null) {
+            if (e.equals(cur.e)) {
+                prev.next = cur.next;
+                cur.next = null;
+                cur = prev.next;
                 size--;
                 continue;
             }
-            prev = node;
-            node = node.next;
+            prev = cur;
+            cur = cur.next;
         }
     }
 
     @Override
     public String toString() {
-        StringBuilder result = new StringBuilder();
+        StringBuilder s = new StringBuilder();
         Node node = dummyHead.next;
         while (node != null) {
-            result.append(node).append(" -> ");
+            s.append(node).append(" -> ");
             node = node.next;
         }
-        result.append("null");
-        return result.toString();
+        s.append("null");
+        return s.toString();
     }
 
     private class Node {
