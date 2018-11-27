@@ -231,4 +231,19 @@ public class TestArray {
         HailStone hailStone = new HailStone();
         hailStone.hailStone(100000).forEach(System.out::println);
     }
+
+    @Test
+    public void test14() {
+        Array<Integer> array = new Array<>(1, 3, 4, 5, 6, 6, 7);
+        System.out.println(array);
+        array.add(1000);
+        System.out.println(array);
+        System.out.println(new Array<>(new Integer[0]));
+    }
+    @Test
+    public void test15(){
+        LinkedList<Integer> list=new LinkedList<>();
+        list.addLast(1);
+        System.out.println(list);
+    }
 }

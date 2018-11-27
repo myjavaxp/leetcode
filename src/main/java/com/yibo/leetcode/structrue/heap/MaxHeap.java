@@ -1,11 +1,9 @@
 package com.yibo.leetcode.structrue.heap;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class MaxHeap<E extends Comparable<E>> {
-    private List<E> data;
+    private ArrayList<E> data;
 
     public MaxHeap() {
         data = new ArrayList<>();
@@ -15,15 +13,21 @@ public class MaxHeap<E extends Comparable<E>> {
      * 构造函数 把一个数组构造为一个最大堆 从最后一个非叶子节点往回走，依次执行siftDown操作，使之成为一个最大堆
      * 此时算法复杂度为O(n)
      *
-     * @param array 数组
+     * @param a 数组
      */
-    public MaxHeap(E[] array) {
-        if (array == null) {
+    @SafeVarargs
+    public MaxHeap(E... a) {
+        if (a == null) {
             data = new ArrayList<>();
         } else {
-            data = new ArrayList<>(Arrays.asList(array));
+            data = new ArrayList<>(a.length);
+            for (E e : a) {
+                if (e != null) {
+                    data.add(e);
+                }
+            }
             if (data.size() > 1) {
-                for (int i = parent(array.length - 1); i >= 0; i--) {
+                for (int i = parent(a.length - 1); i >= 0; i--) {
                     siftDown(i);
                 }
             }
@@ -50,7 +54,7 @@ public class MaxHeap<E extends Comparable<E>> {
      */
     private int parent(int index) {
         if (index == 0) {
-            throw new IllegalArgumentException("Index 0 doesn't have parent!");
+            throw new IllegalArgumentException("Index 0 doesn't have a parent!");
         }
         return (index - 1) / 2;
     }
@@ -140,16 +144,18 @@ public class MaxHeap<E extends Comparable<E>> {
 
     @Override
     public String toString() {
-        StringBuilder result = new StringBuilder();
-        result.append(getClass().getSimpleName()).append(": [");
-        if (!isEmpty()) {
-            for (int i = 0; i < size() - 1; i++) {
-                result.append(data.get(i)).append(" :: ");
+        int iMax = data.size() - 1;
+        if (iMax == -1)
+            return "[]";
+        StringBuilder b = new StringBuilder();
+        b.append('[');
+        for (int i = 0; ; i++) {
+            b.append(data.get(i));
+            if (i == iMax) {
+                return b.append(']').toString();
             }
-            result.append(data.get(size() - 1));
+            b.append(", ");
         }
-        result.append("]");
-        return result.toString();
     }
 
     private void swap(int a, int b) {
