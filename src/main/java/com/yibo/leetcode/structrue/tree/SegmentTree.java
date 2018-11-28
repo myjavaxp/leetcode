@@ -7,6 +7,7 @@ import java.util.Objects;
 /**
  * 线段树，可以由某种计算规则{@link Merger}来计算或者查询某个区间的数值的结果。
  * 该类只实现了单个更改值，批量更新值需要用到一个懒加载机制。
+ * 思路拓展：Range Minimum Query问题
  *
  * @param <E> 存入的元素。
  * @author yibo
