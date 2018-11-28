@@ -11,7 +11,7 @@ public class NumArray2 {
             for (int i = 0; i < nums.length; i++) {
                 data[i] = nums[i];
             }
-            segmentTree = new SegmentTree<>(data, (a, b) -> a + b);
+            segmentTree = new SegmentTree<>((a, b) -> a + b, data);
         }
     }
 

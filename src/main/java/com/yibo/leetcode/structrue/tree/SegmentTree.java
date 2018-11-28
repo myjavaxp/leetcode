@@ -2,6 +2,8 @@ package com.yibo.leetcode.structrue.tree;
 
 import com.yibo.leetcode.structrue.Merger;
 
+import java.util.Objects;
+
 public class SegmentTree<E> {
     /**
      * 数组数据
@@ -14,16 +16,24 @@ public class SegmentTree<E> {
     private Merger<E> merger;
 
     @SuppressWarnings("unchecked")
-    public SegmentTree(E[] arr, Merger<E> merger) {
-        this.merger = merger;
-        data = (E[]) new Object[arr.length];
-        System.arraycopy(arr, 0, data, 0, arr.length);
-        if (arr.length < 2) {
-            tree = (E[]) new Object[arr.length];
-            buildSegmentTree(0, 0, data.length - 1);
+    @SafeVarargs
+    public SegmentTree(Merger<E> merger, E... array) {
+        this.merger = Objects.requireNonNullElseGet(merger, () -> (a, b) -> null);
+        if (array == null) {
+            data = (E[]) new Object[0];
         } else {
-            tree = (E[]) new Object[arr.length * 4 - 5];
-            buildSegmentTree(0, 0, data.length - 1);
+            data = (E[]) new Object[array.length];
+            System.arraycopy(array, 0, data, 0, array.length);
+        }
+        int l = data.length;
+        if (l == 0) {
+            tree = (E[]) new Object[0];
+        } else if (l == 1) {
+            tree = (E[]) new Object[l];
+            tree[0] = data[0];
+        } else {
+            tree = (E[]) new Object[l * 4 - 5];
+            build(0, 0, l - 1);
         }
     }
 
@@ -72,9 +82,19 @@ public class SegmentTree<E> {
                 || left > right) {
             throw new IllegalArgumentException("Index is illegal!");
         }
-        return query(0, 0, data.length - 1, left, right);
+        return size() == 0 ? null : query(0, 0, data.length - 1, left, right);
     }
 
+    /**
+     * 其实l,r的值不能随便传的，必须是treeIndex统计的左右边界
+     *
+     * @param treeIndex 节点
+     * @param l         节点的左边界
+     * @param r         节点的右边界
+     * @param left      用户查找的左边界
+     * @param right     用户查询的右边界
+     * @return 结果
+     */
     private E query(int treeIndex, int l, int r, int left, int right) {
         if (l == left && r == right) {
             return tree[treeIndex];
@@ -93,18 +113,18 @@ public class SegmentTree<E> {
         return merger.merge(leftResult, rightResult);
     }
 
-    private void buildSegmentTree(int treeIndex, int l, int r) {
+    private void build(int index, int l, int r) {
         if (l == r) {
-            tree[treeIndex] = data[l];
+            tree[index] = data[l];
             return;
         }
-        int leftTreeIndex = leftChild(treeIndex);
-        int rightTreeIndex = rightChild(treeIndex);
+        int left = leftChild(index);
+        int right = rightChild(index);
         int mid = l + (r - l) / 2;
-        buildSegmentTree(leftTreeIndex, l, mid);
-        buildSegmentTree(rightTreeIndex, mid + 1, r);
+        build(left, l, mid);
+        build(right, mid + 1, r);
         //这里业务相关
-        tree[treeIndex] = merger.merge(tree[leftTreeIndex], tree[rightTreeIndex]);
+        tree[index] = merger.merge(tree[left], tree[right]);
     }
 
     public int size() {
@@ -132,23 +152,20 @@ public class SegmentTree<E> {
 
     @Override
     public String toString() {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(getClass().getSimpleName()).append(": [");
-        for (int i = 0; i < tree.length; i++) {
-            if (i != tree.length - 1) {
-                if (tree[i] != null) {
-                    stringBuilder.append("(").append(i).append(":").append(tree[i]).append(")").append(", ");
-                } else {
-                    stringBuilder.append("(").append(i).append(":").append("null").append(")").append(", ");
-                }
+        StringBuilder result = new StringBuilder();
+        result.append("[");
+        for (int i = 0; i < tree.length - 1; i++) {
+            if (tree[i] != null) {
+                result.append(i).append("=").append(tree[i]).append(", ");
             } else {
-                if (tree[i] != null) {
-                    stringBuilder.append("(").append(i).append(":").append(tree[i]).append(")]");
-                } else {
-                    stringBuilder.append("(").append(i).append(":").append("null").append(")]");
-                }
+                result.append(i).append("=").append("null").append(", ");
             }
         }
-        return stringBuilder.toString();
+        int l = tree.length - 1;
+        if (l != -1) {
+            result.append(l).append("=").append(tree[l]);
+        }
+        result.append("]");
+        return result.toString();
     }
 }

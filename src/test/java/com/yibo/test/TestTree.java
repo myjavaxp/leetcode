@@ -15,9 +15,9 @@ public class TestTree {
     @Test
     public void test01() {
         Integer[] nums = {-1, 0, 3, -5, 2, -1};
-        SegmentTree<Integer> tree = new SegmentTree<>(nums, ((a, b) -> a + b));
+        SegmentTree<Integer> tree = new SegmentTree<>(((a, b) -> a + b), nums);
         System.out.println(tree);
-        System.out.println(tree.query(0, 5));
+        System.out.println(tree.query(1, 5));
     }
 
     @Test
