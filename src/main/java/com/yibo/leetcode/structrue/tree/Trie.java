@@ -1,7 +1,6 @@
 package com.yibo.leetcode.structrue.tree;
 
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  * 也叫前缀树
@@ -34,13 +33,20 @@ public class Trie {
      * @param word 添加的单词
      */
     public void add(String word) {
+        if (word == null || word.length() == 0) {
+            return;
+        }
         Node cur = root;
         for (int i = 0; i < word.length(); i++) {
             char c = word.charAt(i);
-            if (cur.next.get(c) == null) {
-                cur.next.put(c, new Node());
+            Node node = cur.next.get(c);
+            if (node == null) {
+                Node n = new Node();
+                cur.next.put(c, n);
+                cur = n;
+            } else {
+                cur = node;
             }
-            cur = cur.next.get(c);
         }
         if (!cur.isWord) {
             cur.isWord = true;
@@ -65,6 +71,9 @@ public class Trie {
     }
 
     private boolean has(String word, Node cur, boolean isPrefix) {
+        if (word == null || word.length() == 0) {
+            return false;
+        }
         for (int i = 0; i < word.length(); i++) {
             char c = word.charAt(i);
             if (cur.next.get(c) == null) {
@@ -80,11 +89,10 @@ public class Trie {
 
     private class Node {
         private boolean isWord;
-        private Map<Character, Node> next;
+        private HashMap<Character, Node> next = new HashMap<>();
 
         private Node(boolean isWord) {
             this.isWord = isWord;
-            this.next = new HashMap<>();
         }
 
         private Node() {
