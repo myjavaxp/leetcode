@@ -145,8 +145,9 @@ public class MaxHeap<E extends Comparable<E>> {
     @Override
     public String toString() {
         int iMax = data.size() - 1;
-        if (iMax == -1)
+        if (iMax == -1) {
             return "[]";
+        }
         StringBuilder b = new StringBuilder();
         b.append('[');
         for (int i = 0; ; i++) {
