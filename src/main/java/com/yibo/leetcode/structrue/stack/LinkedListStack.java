@@ -1,7 +1,8 @@
 package com.yibo.leetcode.structrue.stack;
 
-import com.yibo.leetcode.structrue.list.LinkedList;
 import com.yibo.leetcode.structrue.Stack;
+
+import java.util.LinkedList;
 
 public class LinkedListStack<E> implements Stack<E> {
     private LinkedList<E> list;
@@ -33,10 +34,5 @@ public class LinkedListStack<E> implements Stack<E> {
     @Override
     public boolean isEmpty() {
         return list.isEmpty();
-    }
-
-    @Override
-    public String toString() {
-        return "Stack: top " + list;
     }
 }

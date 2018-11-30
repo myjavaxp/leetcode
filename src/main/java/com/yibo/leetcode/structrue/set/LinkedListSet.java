@@ -1,7 +1,8 @@
 package com.yibo.leetcode.structrue.set;
 
-import com.yibo.leetcode.structrue.list.LinkedList;
 import com.yibo.leetcode.structrue.Set;
+
+import java.util.LinkedList;
 
 public class LinkedListSet<E> implements Set<E> {
     private LinkedList<E> list = new LinkedList<>();
@@ -15,7 +16,7 @@ public class LinkedListSet<E> implements Set<E> {
 
     @Override
     public void remove(E e) {
-        list.removeElement(e);
+        list.removeFirstOccurrence(e);
     }
 
     @Override
@@ -31,12 +32,5 @@ public class LinkedListSet<E> implements Set<E> {
     @Override
     public boolean isEmpty() {
         return list.isEmpty();
-    }
-
-    @Override
-    public String toString() {
-        return "LinkedListSet{" +
-                "list=" + list +
-                '}';
     }
 }

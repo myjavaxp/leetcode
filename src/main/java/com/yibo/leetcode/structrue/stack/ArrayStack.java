@@ -1,27 +1,28 @@
 package com.yibo.leetcode.structrue.stack;
 
-import com.yibo.leetcode.structrue.list.Array;
 import com.yibo.leetcode.structrue.Stack;
 
+import java.util.ArrayList;
+
 public class ArrayStack<E> implements Stack<E> {
-    private Array<E> array;
+    private ArrayList<E> array;
 
     public ArrayStack() {
-        array = new Array<>();
+        array = new ArrayList<>();
     }
 
     public ArrayStack(int capacity) {
-        array = new Array<>(capacity);
+        array = new ArrayList<>(capacity);
     }
 
     @Override
     public void push(E e) {
-        array.addLast(e);
+        array.add(e);
     }
 
     @Override
     public E pop() {
-        return array.removeLast();
+        return array.remove(array.size() - 1);
     }
 
     @Override
@@ -37,9 +38,5 @@ public class ArrayStack<E> implements Stack<E> {
     @Override
     public boolean isEmpty() {
         return array.isEmpty();
-    }
-
-    public int getCapacity() {
-        return array.getCapacity();
     }
 }
