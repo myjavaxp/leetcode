@@ -1,11 +1,11 @@
 package com.yibo.leetcode.structrue.practice;
 
 public class Sum {
-    public static int sum(int[] arr) {
+    public int sum(int[] arr) {
         return sum(arr, 0);
     }
 
-    private static int sum(int[] arr, int n) {
+    private int sum(int[] arr, int n) {
         if (n == arr.length) {
             return 0;
         }
