@@ -7,6 +7,7 @@ import com.yibo.leetcode.structrue.Stack;
 import com.yibo.leetcode.structrue.list.Array;
 import com.yibo.leetcode.structrue.list.LinkedList;
 import com.yibo.leetcode.structrue.practice.RemoveElementsSolution;
+import com.yibo.leetcode.structrue.practice.Sum;
 import com.yibo.leetcode.structrue.queue.ArrayQueue;
 import com.yibo.leetcode.structrue.queue.LinkedListQueue;
 import com.yibo.leetcode.structrue.queue.LoopQueue;
@@ -240,10 +241,16 @@ public class TestArray {
         System.out.println(array);
         System.out.println(new Array<>(new Integer[0]));
     }
+
     @Test
-    public void test15(){
-        LinkedList<Integer> list=new LinkedList<>();
+    public void test15() {
+        LinkedList<Integer> list = new LinkedList<>();
         list.addLast(1);
         System.out.println(list);
+    }
+
+    @Test
+    public void test16() {
+        System.out.println(new Sum().sum(new int[]{1, 2, 3, 4, 5}));
     }
 }

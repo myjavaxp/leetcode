@@ -2,6 +2,9 @@ package com.yibo.leetcode.structrue.practice;
 
 public class Sum {
     public int sum(int[] arr) {
+        if (arr == null) {
+            return 0;
+        }
         return sum(arr, 0);
     }
 
