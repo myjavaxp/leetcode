@@ -13,22 +13,22 @@ package com.yibo.leetcode.day20180905;
  * @author Yibo
  */
 public class MinSubArrayLen {
-	public int minSubArrayLen(int s, int[] nums) {
-		int l = 0, r = -1, sum = 0, res = nums.length + 1;// nums[l...r]为我们的滑动窗口
-		while (l < nums.length) {
-			if (r < nums.length - 1 && sum < s) {
-				sum += nums[++r];
-			} else {
-				sum -= nums[l++];
-			}
-			if (sum >= s) {
-				int length = r - l + 1;
-				res = res < length ? res : length;
-			}
-		}
-		if (res == nums.length + 1) {
-			return 0;
-		}
-		return res;
-	}
+    public int minSubArrayLen(int s, int[] nums) {
+        int l = 0, r = -1, sum = 0, res = nums.length + 1;// nums[l...r]为我们的滑动窗口
+        while (l < nums.length) {
+            if (r < nums.length - 1 && sum < s) {
+                sum += nums[++r];
+            } else {
+                sum -= nums[l++];
+            }
+            if (sum >= s) {
+                int length = r - l + 1;
+                res = res < length ? res : length;
+            }
+        }
+        if (res == nums.length + 1) {
+            return 0;
+        }
+        return res;
+    }
 }
