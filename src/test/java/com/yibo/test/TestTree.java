@@ -69,7 +69,6 @@ public class TestTree {
         ArrayList<String> words = new ArrayList<>();
         if (FileOperation.readFile(FILE_PATH, words)) {
             System.out.println("Total words: " + words.size());
-
             RedBlackTree<String, Integer> map = new RedBlackTree<>();
             for (String word : words) {
                 if (map.contains(word))

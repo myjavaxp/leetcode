@@ -39,4 +39,19 @@ public class ArrayStack<E> implements Stack<E> {
     public boolean isEmpty() {
         return array.isEmpty();
     }
+
+    @Override
+    public String toString() {
+        if (array == null || array.isEmpty()) {
+            return "[]";
+        }
+        int size = getSize();
+        StringBuilder result = new StringBuilder();
+        result.append("[");
+        for (int i = size - 1; i > 0; i--) {
+            result.append(array.get(i)).append(", ");
+        }
+        result.append(array.get(0)).append("]");
+        return result.toString();
+    }
 }
