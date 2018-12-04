@@ -11,8 +11,11 @@ public class UnionFind1 implements UnionFind {
     private int[] id;
 
     public UnionFind1(int size) {
+        if (size < 0) {
+            throw new IllegalArgumentException("size必须大于0");
+        }
         id = new int[size];
-        for (int i = 0; i < id.length; i++) {
+        for (int i = 0; i < size; i++) {
             id[i] = i;
         }
     }
@@ -25,7 +28,7 @@ public class UnionFind1 implements UnionFind {
      */
     private int find(int p) {
         if (p < 0 || p >= size()) {
-            throw new RuntimeException("p is out of bound.");
+            throw new IllegalArgumentException("p is out of bound.");
         }
         return id[p];
     }
