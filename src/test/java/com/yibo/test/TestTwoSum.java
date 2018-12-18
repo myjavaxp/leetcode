@@ -5,6 +5,9 @@ import com.yibo.leetcode.history.Trap;
 import com.yibo.leetcode.history.TwoSum;
 import org.junit.Test;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class TestTwoSum {
@@ -29,5 +32,24 @@ public class TestTwoSum {
         List<String> strings = generateParenthesis.generateParenthesis(10);
         System.out.println(strings);
         System.out.println(2 >> 1);
+    }
+
+    @Test
+    public void test04() {
+        System.out.println(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+    }
+
+    @Test
+    public void test05() {
+        BigDecimal num = new BigDecimal(0);
+        for (int i = 0; i < 10; i++) {
+            num = add(num);
+        }
+        System.out.println(num);
+    }
+
+    private BigDecimal add(BigDecimal num) {
+        num = num.add(new BigDecimal(1));
+        return num;
     }
 }
