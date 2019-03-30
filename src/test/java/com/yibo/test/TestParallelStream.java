@@ -22,10 +22,10 @@ public class TestParallelStream {
     @Test
     public void test02() {
         List<Apple> apples = AppleUtil.generateAppleList();
-        System.out.println("排序前");
+        System.out.println("排序前======");
         apples.forEach(System.out::println);
         apples.sort(Comparator.comparingInt(Apple::getWeight));
-        System.out.println("排序后");
+        System.out.println("排序后======");
         apples.forEach(System.out::println);
     }
 
