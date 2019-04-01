@@ -13,7 +13,7 @@ public class Anagram {
         Map<Character, Integer> map = new HashMap<>();
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
-            map.merge(c, 1, (a, b) -> a + b);
+            map.merge(c, 1, Integer::sum);
         }
         for (int i = 0; i < t.length(); i++) {
             char c = t.charAt(i);
