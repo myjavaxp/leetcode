@@ -299,10 +299,6 @@ public class BinaryTree<E extends Comparable<E>> {
     }
 
     private String generateDepthString(int depth) {
-        StringBuilder res = new StringBuilder();
-        for (int i = 0; i < depth; i++) {
-            res.append("-|");
-        }
-        return res.toString();
+        return "-|".repeat(depth);
     }
 }

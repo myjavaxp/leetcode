@@ -16,7 +16,7 @@ public class NumArray {
             for (int i = 0; i < nums.length; i++) {
                 integers[i] = nums[i];
             }
-            segmentTree = new SegmentTree<>(((a, b) -> a + b), integers);
+            segmentTree = new SegmentTree<>((Integer::sum), integers);
         }
     }
 

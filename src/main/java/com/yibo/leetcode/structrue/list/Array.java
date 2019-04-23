@@ -85,9 +85,7 @@ public class Array<E> implements Serializable {
         if (index < 0 || index > size) {
             throw new IllegalArgumentException("Add failed. Require index >= 0 and index <= size");
         }
-        if (size - index >= 0) {
-            System.arraycopy(data, index, data, index + 1, size - index);
-        }
+        System.arraycopy(data, index, data, index + 1, size - index);
         data[index] = e;
         size++;
     }
@@ -129,9 +127,7 @@ public class Array<E> implements Serializable {
             throw new IllegalArgumentException("Remove failed. Require index >= 0 and index < size");
         }
         E result = data[index];
-        if (size - index - 1 >= 0) {
-            System.arraycopy(data, index + 1, data, index, size - index - 1);
-        }
+        System.arraycopy(data, index + 1, data, index, size - index - 1);
         size--;
         data[size] = null;
         if (size == getCapacity() / 4 && getCapacity() / 2 != 0) {
