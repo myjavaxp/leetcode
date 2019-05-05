@@ -17,8 +17,8 @@ public class Solution0102 {
         queue.add(new Pair<>(root, 0));
         while (!queue.isEmpty()) {
             Pair<TreeNode, Integer> pair = queue.poll();
-            TreeNode node = pair.getKey();
-            int level = pair.getValue();
+            TreeNode node = pair.key;
+            int level = pair.value;
             if (level == res.size()) {
                 res.add(new ArrayList<>());
             }
@@ -36,14 +36,6 @@ public class Solution0102 {
     private class Pair<K, V> {
         private K key;
         private V value;
-
-        private V getValue() {
-            return value;
-        }
-
-        private K getKey() {
-            return key;
-        }
 
         private Pair(K key, V value) {
             this.key = key;
