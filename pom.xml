@@ -10,7 +10,7 @@
     <packaging>jar</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven-compiler.version>3.8.0</maven-compiler.version>
+        <maven-compiler.version>3.8.1</maven-compiler.version>
         <java.version>11</java.version>
         <junit.version>4.12</junit.version>
     </properties>
