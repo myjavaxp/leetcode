@@ -11,7 +11,7 @@ public class Search {
      * @return 索引位置，-1表示没有
      */
     public static <T extends Comparable<T>> int binarySearch(T[] arr, int n, T target) {
-        n = n > arr.length ? arr.length : n;
+        n = Math.min(n, arr.length);
         int l = 0, r = n - 1;
         while (l <= r) {
             int mid = l + (r - l) / 2;
