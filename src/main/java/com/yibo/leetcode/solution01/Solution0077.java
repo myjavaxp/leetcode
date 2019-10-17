@@ -41,7 +41,7 @@ public class Solution0077 {
      * @return 所有可能性
      */
     public List<List<Integer>> combine(int n, int k) {
-        if (n < 1 || k < 1 || k > n) {
+        if (k < 1 || k > n) {
             return res;
         }
         generateCombinations(n, k, 1, new ArrayList<>());
