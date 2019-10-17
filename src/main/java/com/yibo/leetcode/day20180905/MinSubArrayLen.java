@@ -23,7 +23,7 @@ public class MinSubArrayLen {
             }
             if (sum >= s) {
                 int length = r - l + 1;
-                res = res < length ? res : length;
+                res = Math.min(res, length);
             }
         }
         if (res == nums.length + 1) {

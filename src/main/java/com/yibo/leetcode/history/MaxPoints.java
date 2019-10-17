@@ -37,7 +37,7 @@ public class MaxPoints {
         Map<Point, Integer> map = new HashMap<>();
         //map key为点，value为点的个数
         for (Point point : points) {
-            map.merge(point, 1, (a, b) -> a + b);
+            map.merge(point, 1, Integer::sum);
         }
         Set<Point> keySet = map.keySet();
         if (map.size() < 3) {
@@ -65,7 +65,7 @@ public class MaxPoints {
                     listMax += map.get(point);
                 }
             }
-            max = listMax > max ? listMax : max;
+            max = Math.max(listMax, max);
         }
         //最大长度中拿最大长度
         return max;
@@ -98,7 +98,7 @@ class Point {
         y = 0;
     }
 
-    public Point(int x, int y) {
+    Point(int x, int y) {
         this.x = x;
         this.y = y;
     }

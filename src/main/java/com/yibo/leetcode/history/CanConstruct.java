@@ -25,10 +25,10 @@ public class CanConstruct {
         char[] ransom = ransomNote.toCharArray();
         char[] array = magazine.toCharArray();
         for (char r : ransom) {
-            rMap.merge(r, 1, (a, b) -> a + b);
+            rMap.merge(r, 1, Integer::sum);
         }
         for (char m : array) {
-            mMap.merge(m, 1, (a, b) -> a + b);
+            mMap.merge(m, 1, Integer::sum);
         }
         Set<Character> keySet = rMap.keySet();
         for (Character character : keySet) {
