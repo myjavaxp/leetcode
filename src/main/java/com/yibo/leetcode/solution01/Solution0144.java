@@ -31,7 +31,7 @@ public class Solution0144 {
         return list;
     }
 
-    private class Command {
+    private static class Command {
         private TreeNode node;
         private boolean s;
 
