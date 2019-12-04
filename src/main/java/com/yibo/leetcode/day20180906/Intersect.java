@@ -14,7 +14,7 @@ public class Intersect {
     public int[] intersect(int[] nums1, int[] nums2) {
         Map<Integer, Integer> map = new HashMap<>();
         for (int i : nums1) {
-            map.merge(i, 1, (a, b) -> a + b);
+            map.merge(i, 1, Integer::sum);
         }
         List<Integer> list = new ArrayList<>();
         for (int i : nums2) {
