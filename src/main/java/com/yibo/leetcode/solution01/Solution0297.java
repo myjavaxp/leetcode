@@ -45,8 +45,7 @@ public class Solution0297 {
 
     // Decodes your encoded data to tree.
     public TreeNode deserialize(String data) {
-        int length = data.length();
-        if (length == 0) {
+        if (data.length() == 0) {
             return null;
         }
         String[] array = data.split(",");
