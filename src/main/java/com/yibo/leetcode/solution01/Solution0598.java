@@ -5,8 +5,12 @@ public class Solution0598 {
         int row = m;
         int col = n;
         for (int[] op : ops) {
-            row = Math.min(m, Math.min(op[0], row));
-            col = Math.min(n, Math.min(op[1], col));
+            if (op[0] < row) {
+                row = op[0];
+            }
+            if (op[1] < col) {
+                col = op[1];
+            }
         }
         return row * col;
     }
