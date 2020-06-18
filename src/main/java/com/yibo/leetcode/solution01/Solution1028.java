@@ -49,8 +49,7 @@ public class Solution1028 {
                     stack.push(node);
                     parent.left = node;
                 } else {
-                    stack.pop();
-                    while (e < 0) {
+                    while (e <= 0) {
                         stack.pop();
                         e++;
                     }
