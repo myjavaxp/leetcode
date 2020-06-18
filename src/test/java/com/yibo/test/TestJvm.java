@@ -1,7 +1,8 @@
 package com.yibo.test;
 
 import com.yibo.leetcode.jvm.ConstClass;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
 
 public class TestJvm {
     @Test

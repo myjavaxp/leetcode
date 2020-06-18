@@ -14,7 +14,7 @@ import com.yibo.leetcode.structrue.queue.LoopQueue;
 import com.yibo.leetcode.structrue.stack.LinkedListStack;
 import com.yibo.leetcode.structrue.tree.BinaryTree;
 import com.yibo.leetcode.util.ArrayUtil;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.*;
 

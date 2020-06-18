@@ -3,7 +3,7 @@ package com.yibo.test;
 import com.yibo.leetcode.structrue.Set;
 import com.yibo.leetcode.structrue.list.LinkedList;
 import com.yibo.leetcode.structrue.set.LinkedListSet;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Random;
 

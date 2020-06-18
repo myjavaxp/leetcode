@@ -3,7 +3,7 @@ package com.yibo.test;
 import com.yibo.leetcode.eight.AppleUtil;
 import com.yibo.leetcode.eight.TimeUtil;
 import com.yibo.leetcode.eight.domain.Apple;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Comparator;
 import java.util.List;

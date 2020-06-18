@@ -2,7 +2,7 @@ package com.yibo.test;
 
 import com.yibo.leetcode.solution01.Solution0125;
 import com.yibo.leetcode.structrue.tree.Trie;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class TestTrie {
     @Test

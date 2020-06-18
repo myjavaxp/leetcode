@@ -1,7 +1,8 @@
 package com.yibo.test;
 
 import com.yibo.leetcode.solution01.Solution0012;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
 
 public class TestNum {
     @Test

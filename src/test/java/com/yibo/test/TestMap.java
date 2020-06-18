@@ -3,7 +3,7 @@ package com.yibo.test;
 import com.yibo.leetcode.structrue.Map;
 import com.yibo.leetcode.structrue.hash.HashTable;
 import com.yibo.leetcode.structrue.map.BinaryTreeMap;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
 import java.util.Random;

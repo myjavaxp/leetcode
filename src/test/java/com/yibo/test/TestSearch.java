@@ -5,7 +5,7 @@ import com.yibo.leetcode.day20180904.MoveZeroes;
 import com.yibo.leetcode.util.ArrayUtil;
 import com.yibo.leetcode.util.Single;
 import com.yibo.leetcode.util.SingleExample;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;

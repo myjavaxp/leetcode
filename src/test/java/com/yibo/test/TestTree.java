@@ -4,7 +4,7 @@ import com.yibo.leetcode.structrue.tree.AVLTree;
 import com.yibo.leetcode.structrue.tree.RedBlackTree;
 import com.yibo.leetcode.structrue.tree.SegmentTree;
 import com.yibo.leetcode.structrue.util.FileOperation;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Random;

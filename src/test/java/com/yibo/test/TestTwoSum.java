@@ -3,7 +3,7 @@ package com.yibo.test;
 import com.yibo.leetcode.day20180810.GenerateParenthesis;
 import com.yibo.leetcode.history.Trap;
 import com.yibo.leetcode.history.TwoSum;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

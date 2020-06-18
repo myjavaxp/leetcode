@@ -4,7 +4,7 @@ import com.yibo.leetcode.structrue.UnionFind;
 import com.yibo.leetcode.structrue.uf.UnionFind3;
 import com.yibo.leetcode.structrue.uf.UnionFind4;
 import com.yibo.leetcode.structrue.uf.UnionFind5;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Random;
 

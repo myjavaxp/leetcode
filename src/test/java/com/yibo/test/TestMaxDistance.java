@@ -2,7 +2,7 @@ package com.yibo.test;
 
 import com.yibo.leetcode.history.*;
 import com.yibo.leetcode.solution01.Solution0005;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 

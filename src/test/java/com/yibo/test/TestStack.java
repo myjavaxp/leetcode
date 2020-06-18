@@ -1,7 +1,7 @@
 package com.yibo.test;
 
 import com.yibo.leetcode.structrue.stack.ArrayStack;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Random;
 
