@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Solution0017 {
-    private List<String> res = new ArrayList<>();
+    private final List<String> res = new ArrayList<>();
     private static final String[] LETTER_MAP = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
 
     private void findCombinations(String digits, int index, String s) {
