@@ -21,8 +21,10 @@ public class Solution0016 {
                 }
                 if (sum < target) {
                     start++;
-                } else {
+                } else if (sum > target) {
                     end--;
+                } else {
+                    return target;
                 }
             }
         }
