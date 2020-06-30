@@ -55,9 +55,6 @@ public class MaxDistance {
         if (list.get(0) > distance) {
             distance = list.get(0);
         }
-        if ((length - 1) - list.get(list.size() - 1) > distance) {
-            return (length - 1) - list.get(list.size() - 1);
-        }
-        return distance;
+        return Math.max((length - 1) - list.get(list.size() - 1), distance);
     }
 }
