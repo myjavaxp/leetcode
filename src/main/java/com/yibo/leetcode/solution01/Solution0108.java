@@ -14,7 +14,7 @@ public class Solution0108 {
         if (l == r) {
             return new TreeNode(nums[l]);
         }
-        int mid = (l + r) / 2;
+        int mid = l + (r - l) >> 1;
         TreeNode res = new TreeNode(nums[mid]);
         res.left = toBst(l, mid - 1, nums);
         res.right = toBst(mid + 1, r, nums);
