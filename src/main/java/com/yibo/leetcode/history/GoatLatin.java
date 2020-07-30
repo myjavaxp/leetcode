@@ -41,9 +41,7 @@ public class GoatLatin {
                 String temp = strings[i].substring(1) + strings[i].charAt(0);
                 string.append(temp).append("ma");
             }
-            for (int j = 0; j < i + 1; j++) {
-                string.append("a");
-            }
+            string.append("a".repeat(i + 1));
             if (i < strings.length - 1) {
                 string.append(" ");
             }
