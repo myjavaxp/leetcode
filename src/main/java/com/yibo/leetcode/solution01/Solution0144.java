@@ -32,8 +32,8 @@ public class Solution0144 {
     }
 
     private static class Command {
-        private TreeNode node;
-        private boolean s;
+        private final TreeNode node;
+        private final boolean s;
 
         private Command(TreeNode node, boolean s) {
             this.node = node;

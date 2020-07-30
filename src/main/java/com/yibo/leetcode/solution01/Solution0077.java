@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Solution0077 {
-    private List<List<Integer>> res = new ArrayList<>();
+    private final List<List<Integer>> res = new ArrayList<>();
 
     /**
      * 求解C(n,k),当前已找到的组合存放在c中，需要从start开始搜索新的元素

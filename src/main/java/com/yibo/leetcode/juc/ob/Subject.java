@@ -5,7 +5,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 public abstract class Subject {
     //保存注册的观察者对象
-    private List<Observer> observerList = new CopyOnWriteArrayList<>();
+    private final List<Observer> observerList = new CopyOnWriteArrayList<>();
 
     //注册观察者对象
     public void attach(Observer observer) {

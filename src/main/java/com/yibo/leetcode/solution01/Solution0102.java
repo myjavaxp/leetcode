@@ -34,8 +34,8 @@ public class Solution0102 {
     }
 
     private class Pair<K, V> {
-        private K key;
-        private V value;
+        private final K key;
+        private final V value;
 
         private Pair(K key, V value) {
             this.key = key;

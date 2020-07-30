@@ -3,7 +3,7 @@ package com.yibo.leetcode.structrue.uf;
 import com.yibo.leetcode.structrue.UnionFind;
 
 public class UnionFind2 implements UnionFind {
-    private int[] parent;
+    private final int[] parent;
 
     public UnionFind2(int size) {
         parent = new int[size];

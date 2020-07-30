@@ -9,7 +9,7 @@ import com.yibo.leetcode.structrue.heap.MaxHeap;
  * @param <E> 实现了{@link Comparable}接口的类型
  */
 public class PriorityQueue<E extends Comparable<E>> implements Queue<E> {
-    private MaxHeap<E> maxHeap = new MaxHeap<>();
+    private final MaxHeap<E> maxHeap = new MaxHeap<>();
 
     @Override
     public void enqueue(E e) {

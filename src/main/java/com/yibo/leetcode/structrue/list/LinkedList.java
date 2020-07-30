@@ -1,7 +1,7 @@
 package com.yibo.leetcode.structrue.list;
 
 public class LinkedList<E> {
-    private Node dummyHead;
+    private final Node dummyHead;
     private int size;
 
     public LinkedList() {

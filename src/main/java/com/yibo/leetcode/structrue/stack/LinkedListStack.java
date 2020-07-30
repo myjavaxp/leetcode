@@ -5,7 +5,7 @@ import com.yibo.leetcode.structrue.Stack;
 import java.util.LinkedList;
 
 public class LinkedListStack<E> implements Stack<E> {
-    private LinkedList<E> list;
+    private final LinkedList<E> list;
 
     public LinkedListStack() {
         list = new LinkedList<>();

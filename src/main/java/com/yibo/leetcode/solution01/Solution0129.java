@@ -27,13 +27,13 @@ public class Solution0129 {
         if (node.left != null) {
             List<String> numbers = getNumbers(node.left);
             for (String string : numbers) {
-                res.add(String.valueOf(node.val) + string);
+                res.add(node.val + string);
             }
         }
         if (node.right != null) {
             List<String> numbers = getNumbers(node.right);
             for (String string : numbers) {
-                res.add(String.valueOf(node.val) + string);
+                res.add(node.val + string);
             }
         }
         return res;

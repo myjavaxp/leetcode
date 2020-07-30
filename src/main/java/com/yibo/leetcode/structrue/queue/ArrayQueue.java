@@ -5,7 +5,7 @@ import com.yibo.leetcode.structrue.Queue;
 import java.util.ArrayList;
 
 public class ArrayQueue<E> implements Queue<E> {
-    private ArrayList<E> array;
+    private final ArrayList<E> array;
 
     public ArrayQueue(int capacity) {
         array = new ArrayList<>(capacity);

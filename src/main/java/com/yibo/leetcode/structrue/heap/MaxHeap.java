@@ -3,7 +3,7 @@ package com.yibo.leetcode.structrue.heap;
 import java.util.ArrayList;
 
 public class MaxHeap<E extends Comparable<E>> {
-    private ArrayList<E> data;
+    private final ArrayList<E> data;
 
     public MaxHeap() {
         data = new ArrayList<>();

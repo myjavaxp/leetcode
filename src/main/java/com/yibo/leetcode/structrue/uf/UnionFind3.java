@@ -8,8 +8,8 @@ import com.yibo.leetcode.structrue.UnionFind;
  * @author Yibo
  */
 public class UnionFind3 implements UnionFind {
-    private int[] parent;
-    private int[] sz;
+    private final int[] parent;
+    private final int[] sz;
 
     public UnionFind3(int size) {
         parent = new int[size];

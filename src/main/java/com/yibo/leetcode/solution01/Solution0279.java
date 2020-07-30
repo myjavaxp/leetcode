@@ -31,8 +31,8 @@ public class Solution0279 {
     }
 
     private class Pair {
-        private int val;
-        private int step;
+        private final int val;
+        private final int step;
 
         private Pair(int val, int step) {
             this.val = val;

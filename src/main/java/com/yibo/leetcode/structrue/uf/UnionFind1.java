@@ -8,7 +8,7 @@ import com.yibo.leetcode.structrue.UnionFind;
  * @author Yibo
  */
 public class UnionFind1 implements UnionFind {
-    private int[] id;
+    private final int[] id;
 
     public UnionFind1(int size) {
         if (size < 0) {

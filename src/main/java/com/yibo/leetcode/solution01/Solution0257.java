@@ -18,13 +18,13 @@ public class Solution0257 {
         if (root.left != null) {
             List<String> left = binaryTreePaths(root.left);
             for (String string : left) {
-                res.add(String.valueOf(root.val) + "->" + string);
+                res.add(root.val + "->" + string);
             }
         }
         if (root.right != null) {
             List<String> right = binaryTreePaths(root.right);
             for (String string : right) {
-                res.add(String.valueOf(root.val) + "->" + string);
+                res.add(root.val + "->" + string);
             }
         }
         return res;

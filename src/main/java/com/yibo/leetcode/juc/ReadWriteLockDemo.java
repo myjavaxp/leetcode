@@ -20,7 +20,7 @@ public class ReadWriteLockDemo {
 
 class ReadWrite {
     private int number;
-    private ReadWriteLock lock = new ReentrantReadWriteLock();
+    private final ReadWriteLock lock = new ReentrantReadWriteLock();
 
     //读操作
     void get() {

@@ -10,7 +10,7 @@ import java.util.HashMap;
  * 后缀树
  */
 public class Trie {
-    private Node root;
+    private final Node root;
     private int size;
 
     public Trie() {
@@ -89,7 +89,7 @@ public class Trie {
 
     private class Node {
         private boolean isWord;
-        private HashMap<Character, Node> next = new HashMap<>();
+        private final HashMap<Character, Node> next = new HashMap<>();
 
         private Node(boolean isWord) {
             this.isWord = isWord;

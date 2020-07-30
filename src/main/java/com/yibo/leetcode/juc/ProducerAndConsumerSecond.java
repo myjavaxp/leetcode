@@ -22,8 +22,8 @@ public class ProducerAndConsumerSecond {
 
 class Clerk2 {
     private int product;
-    private Lock lock = new ReentrantLock();
-    private Condition condition = lock.newCondition();
+    private final Lock lock = new ReentrantLock();
+    private final Condition condition = lock.newCondition();
 
     public void get() {
         lock.lock();
@@ -61,7 +61,7 @@ class Clerk2 {
 }
 
 class Producer2 implements Runnable {
-    private Clerk2 clerk;
+    private final Clerk2 clerk;
 
     Producer2(Clerk2 clerk) {
         this.clerk = clerk;
@@ -81,7 +81,7 @@ class Producer2 implements Runnable {
 }
 
 class Consumer2 implements Runnable {
-    private Clerk2 clerk;
+    private final Clerk2 clerk;
 
     Consumer2(Clerk2 clerk) {
         this.clerk = clerk;

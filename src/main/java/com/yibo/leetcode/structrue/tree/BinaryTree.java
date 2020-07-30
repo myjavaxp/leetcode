@@ -266,7 +266,7 @@ public class BinaryTree<E extends Comparable<E>> {
         /**
          * 节点值
          */
-        private E e;
+        private final E e;
         /**
          * 左孩子
          */

@@ -16,12 +16,12 @@ public class SegmentTree<E> {
     /**
      * 数组数据
      */
-    private E[] data;
+    private final E[] data;
     /**
      * 经过merge以后的值。
      */
-    private E[] tree;
-    private Merger<E> merger;
+    private final E[] tree;
+    private final Merger<E> merger;
 
     @SuppressWarnings("unchecked")
     @SafeVarargs

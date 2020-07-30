@@ -49,7 +49,7 @@ class Clerk {
 }
 
 class Producer implements Runnable {
-    private Clerk clerk;
+    private final Clerk clerk;
 
     Producer(Clerk clerk) {
         this.clerk = clerk;
@@ -69,7 +69,7 @@ class Producer implements Runnable {
 }
 
 class Consumer implements Runnable {
-    private Clerk clerk;
+    private final Clerk clerk;
 
     Consumer(Clerk clerk) {
         this.clerk = clerk;

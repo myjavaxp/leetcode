@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Solution0046 {
-    private List<List<Integer>> res = new LinkedList<>();
+    private final List<List<Integer>> res = new LinkedList<>();
     private boolean[] used;
 
     public List<List<Integer>> permute(int[] nums) {

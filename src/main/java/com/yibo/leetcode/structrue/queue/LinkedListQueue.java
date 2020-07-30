@@ -13,7 +13,7 @@ public class LinkedListQueue<E> implements Queue<E> {
     }
 
     private class Node {
-        private E e;
+        private final E e;
         private Node next;
 
         private Node(E e, Node next) {

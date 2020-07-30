@@ -15,7 +15,7 @@ public class Solution0297 {
         }
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
-        StringBuilder res = new StringBuilder("");
+        StringBuilder res = new StringBuilder();
         int levelTotalCount = 1;
         int levelCount = 0;
         int emptyCount = 0;

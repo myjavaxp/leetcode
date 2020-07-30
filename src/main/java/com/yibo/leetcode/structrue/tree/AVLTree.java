@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class AVLTree<K extends Comparable<K>, V> {
 
     private class Node {
-        private K key;
+        private final K key;
         private V value;
         private Node left, right;
         private int height;

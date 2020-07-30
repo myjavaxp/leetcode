@@ -4,7 +4,7 @@ import com.yibo.leetcode.structrue.Set;
 import com.yibo.leetcode.structrue.tree.BinaryTree;
 
 public class BinaryTreeSet<E extends Comparable<E>> implements Set<E> {
-    private BinaryTree<E> tree = new BinaryTree<>();
+    private final BinaryTree<E> tree = new BinaryTree<>();
 
     @Override
     public void add(E e) {

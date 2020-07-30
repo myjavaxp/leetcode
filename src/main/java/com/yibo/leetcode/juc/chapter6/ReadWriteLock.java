@@ -5,7 +5,7 @@ public class ReadWriteLock {
     private int waitingReaders = 0;
     private int writingWriters = 0;
     private int waitingWriters = 0;
-    private boolean preferWriter;
+    private final boolean preferWriter;
 
     public ReadWriteLock() {
         this(true);

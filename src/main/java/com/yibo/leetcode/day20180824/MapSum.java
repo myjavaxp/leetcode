@@ -7,7 +7,7 @@ import java.util.Map;
  * https://leetcode-cn.com/problems/map-sum-pairs/description/
  */
 public class MapSum {
-    private Node root;
+    private final Node root;
 
     public MapSum() {
         root = new Node();
@@ -48,7 +48,7 @@ public class MapSum {
 
     private class Node {
         private int value;
-        private Map<Character, Node> next = new HashMap<>();
+        private final Map<Character, Node> next = new HashMap<>();
 
         private Node(int value) {
             this.value = value;

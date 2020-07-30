@@ -5,7 +5,7 @@ import com.yibo.leetcode.structrue.Stack;
 import java.util.ArrayList;
 
 public class ArrayStack<E> implements Stack<E> {
-    private ArrayList<E> array;
+    private final ArrayList<E> array;
 
     public ArrayStack() {
         array = new ArrayList<>();

@@ -3,7 +3,7 @@ package com.yibo.leetcode.structrue.map;
 import com.yibo.leetcode.structrue.Map;
 
 public class LinkedListMap<K, V> implements Map<K, V> {
-    private Node dummyHead = new Node();
+    private final Node dummyHead = new Node();
     private int size;
 
     @Override

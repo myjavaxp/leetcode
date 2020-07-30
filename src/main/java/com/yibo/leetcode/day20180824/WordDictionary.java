@@ -8,7 +8,7 @@ import java.util.Map;
  * https://leetcode-cn.com/problems/add-and-search-word-data-structure-design/description/
  */
 public class WordDictionary {
-    private Node root;
+    private final Node root;
 
     /**
      * Initialize your data structure here.
@@ -61,7 +61,7 @@ public class WordDictionary {
 
     private class Node {
         private boolean isWord;
-        private Map<Character, Node> next;
+        private final Map<Character, Node> next;
 
         private Node(boolean isWord) {
             this.isWord = isWord;

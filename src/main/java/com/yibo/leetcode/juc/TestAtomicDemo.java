@@ -17,7 +17,7 @@ public class TestAtomicDemo {
  * cas算法保证原子性，volatile保证内存可见性
  */
 class AtomicDemo implements Runnable {
-    private AtomicInteger serialNumber = new AtomicInteger();
+    private final AtomicInteger serialNumber = new AtomicInteger();
 
     @Override
     public void run() {

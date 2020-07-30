@@ -1,8 +1,8 @@
 package com.yibo.leetcode.day20180823;
 
 public class NumArray {
-    private int[] data;
-    private int[] sum;//一共有[数组长度+1]个元素，因为第0个元素是虚拟的0
+    private final int[] data;
+    private final int[] sum;//一共有[数组长度+1]个元素，因为第0个元素是虚拟的0
 
     public NumArray(int[] nums) {
         data = new int[nums.length];

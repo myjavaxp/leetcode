@@ -14,9 +14,9 @@ import java.util.TreeMap;
  * @param <V> value
  */
 public class HashTable<K, V> implements Map<K, V> {
-    private TreeMap<K, V>[] tree;
+    private final TreeMap<K, V>[] tree;
     private int size;
-    private int m;
+    private final int m;
 
     @SuppressWarnings("unchecked")
     private HashTable(int m) {

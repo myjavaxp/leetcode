@@ -1,7 +1,7 @@
 package com.yibo.leetcode.juc.ob;
 
 public class BeautyObserver implements Observer {
-    private String className;
+    private final String className;
 
     BeautyObserver(String className) {
         this.className = className;

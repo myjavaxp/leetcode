@@ -27,10 +27,10 @@ public class AlternateDemo {
 
 class Alternate {
     private int number = 1;//当前执行线程的标记
-    private Lock lock = new ReentrantLock();
-    private Condition condition1 = lock.newCondition();
-    private Condition condition2 = lock.newCondition();
-    private Condition condition3 = lock.newCondition();
+    private final Lock lock = new ReentrantLock();
+    private final Condition condition1 = lock.newCondition();
+    private final Condition condition2 = lock.newCondition();
+    private final Condition condition3 = lock.newCondition();
 
     /**
      * 循环打印

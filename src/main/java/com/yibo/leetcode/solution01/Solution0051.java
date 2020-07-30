@@ -7,7 +7,7 @@ import java.util.List;
  * @author yibo
  */
 public class Solution0051 {
-    private List<List<String>> res = new ArrayList<>();
+    private final List<List<String>> res = new ArrayList<>();
     //col标记每一列是否有重复，dia1每一斜列是否重复，dia2每一反斜列是否重复
     private boolean[] col, dia1, dia2;
 

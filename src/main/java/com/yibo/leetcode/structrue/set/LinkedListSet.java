@@ -5,7 +5,7 @@ import com.yibo.leetcode.structrue.Set;
 import java.util.LinkedList;
 
 public class LinkedListSet<E> implements Set<E> {
-    private LinkedList<E> list = new LinkedList<>();
+    private final LinkedList<E> list = new LinkedList<>();
 
     @Override
     public void add(E e) {
