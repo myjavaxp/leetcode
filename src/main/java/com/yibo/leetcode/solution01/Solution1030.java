@@ -11,7 +11,7 @@ public class Solution1030 {
         int[][] result = new int[R * C][2];
         int index = 1;
         result[0] = new int[]{r0, c0};
-        for (int i = 1; i < R + C - 1; i++) {
+        for (int i = 1; i <= maxDistance(R, C, r0, c0); i++) {
             //System.out.println(i);
             //距离为寻找距离为i的坐标
             for (int j = -i; j <= 0; j++) {
@@ -48,5 +48,13 @@ public class Solution1030 {
 
     private boolean inMatrix(int R, int C, int x, int y) {
         return x >= 0 && x < R && y >= 0 && y < C;
+    }
+
+    private int maxDistance(int R, int C, int r0, int c0) {
+        int a = R - r0 - 1 + C - c0 - 1;
+        int b = r0 + c0;
+        int c = R - r0 - 1 + c0;
+        int d = r0 + C - c0 - 1;
+        return Integer.max(Math.max(a, b), Math.max(c, d));
     }
 }
