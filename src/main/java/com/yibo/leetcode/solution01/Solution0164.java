@@ -9,6 +9,7 @@ import java.util.Arrays;
 public class Solution0164 {
     public int maximumGap(int[] nums) {
         //todo 桶排序
+        //todo 基数排序
         if (nums == null || nums.length < 2) {
             return 0;
         }
