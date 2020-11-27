@@ -8,14 +8,14 @@ public class Solution0454 {
         Map<Integer, Integer> record = new HashMap<>();
         for (int aC : C) {
             for (int aD : D) {
-                record.merge(aC + aD, 1, (a, b) -> (a + b));
+                record.merge(aC + aD, 1, Integer::sum);
             }
         }
         int res = 0;
         for (int aA : A) {
             for (int aB : B) {
-                if (record.containsKey(0 - aA - aB)) {
-                    res += record.get(0 - aA - aB);
+                if (record.containsKey(-aA - aB)) {
+                    res += record.get(-aA - aB);
                 }
             }
         }
