@@ -18,7 +18,7 @@ public class HashTable<K, V> implements Map<K, V> {
     private int size;
     private final int m;
 
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("all")
     private HashTable(int m) {
         this.m = m;
         tree = (TreeMap<K, V>[]) new TreeMap[m];
