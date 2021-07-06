@@ -1,7 +1,6 @@
 package com.yibo.leetcode.solution01;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * 给你一个数组 orders，表示客户在餐厅中完成的订单，确切地说， orders[i]=[customerNamei,tableNumberi,foodItemi] ，其中 customerNamei 是客户的姓名，tableNumberi 是客户所在餐桌的桌号，而 foodItemi 是客户点的餐品名称。
@@ -25,7 +24,7 @@ import java.util.List;
  * 餐桌 10：Corina 点了 "Beef Burrito"
  * 示例 2：
  * <p>
- * 输入：orders = [["James","12","Fried Chicken"],["Ratesh","12","Fried Chicken"],["Amadeus","12","Fried Chicken"],["Adam","1","Canadian Waffles"],["Brianna","1","Canadian Waffles"]]
+ * 输入：orders = [["James","12","Fried 2Chicken"],["Ratesh","12","Fried Chicken"],["Amadeus","12","Fried Chicken"],["Adam","1","Canadian Waffles"],["Brianna","1","Canadian Waffles"]]
  * 输出：[["Table","Canadian Waffles","Fried Chicken"],["1","2","0"],["12","0","3"]]
  * 解释：
  * 对于餐桌 1：Adam 和 Brianna 都点了 "Canadian Waffles"
@@ -51,9 +50,38 @@ import java.util.List;
 public class Solution1418 {
     public List<List<String>> displayTable(List<List<String>> orders) {
         List<List<String>> res = new ArrayList<>();
-        orders.forEach(order -> {
-            order.get(0);
+        TreeSet<String> set = new TreeSet<>();
+        Map<Integer, List<String>> treeMap = new TreeMap<>();
+        Map<String, Integer> headerMap = new TreeMap<>();
+        orders.forEach(order -> set.add(order.get(2)));
+        int index = 0;
+        for (String s : set) {
+            headerMap.put(s, index++);
+        }
+        List<String> header = new ArrayList<>();
+        header.add("Table");
+        header.addAll(set);
+        for (List<String> order : orders) {
+            int rowNo = Integer.parseInt(order.get(1));
+            List<String> list = treeMap.get(rowNo);
+            if (list == null) {
+                list = new ArrayList<>();
+                treeMap.put(rowNo, list);
+                for (int i = 0; i < header.size() - 1; i++) {
+                    list.add("0");
+                }
+            }
+            String s = order.get(2);
+            Integer position = headerMap.get(s);
+            list.set(position, String.valueOf(Integer.parseInt(list.get(position)) + 1));
+        }
+        res.add(header);
+        treeMap.forEach((rowNo, value) -> {
+            List<String> list = new ArrayList<>();
+            list.add(String.valueOf(rowNo));
+            list.addAll(value);
+            res.add(list);
         });
-        return null;
+        return res;
     }
 }
